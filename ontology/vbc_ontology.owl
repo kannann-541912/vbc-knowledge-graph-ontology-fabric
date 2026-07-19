@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:vbc="https://ontology.vbc.internal/vbc#"
+         xml:base="https://ontology.vbc.internal/vbc">
+
+  <owl:Ontology rdf:about="https://ontology.vbc.internal/vbc">
+    <rdfs:label>VBC Knowledge Ontology v1.1</rdfs:label>
+    <rdfs:comment>Value-Based Care ontology for the AWS Knowledge Fabric Stack</rdfs:comment>
+  </owl:Ontology>
+
+  <!-- ═══ Classes ═══ -->
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Person">
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:comment>A human being in the healthcare ecosystem</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Patient">
+    <rdfs:label>Patient</rdfs:label>
+    <rdfs:comment>Individual receiving healthcare services</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTeamMember">
+    <rdfs:label>CareTeamMember</rdfs:label>
+    <rdfs:comment>Healthcare professional involved in patient care</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientState">
+    <rdfs:label>PatientState</rdfs:label>
+    <rdfs:comment>Current clinical or administrative state of a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientStateTransition">
+    <rdfs:label>PatientStateTransition</rdfs:label>
+    <rdfs:comment>A change from one patient state to another</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientDiagnosis">
+    <rdfs:label>PatientDiagnosis</rdfs:label>
+    <rdfs:comment>A diagnosis assigned to a specific patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientMedication">
+    <rdfs:label>PatientMedication</rdfs:label>
+    <rdfs:comment>A medication prescribed to a specific patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientSymptom">
+    <rdfs:label>PatientSymptom</rdfs:label>
+    <rdfs:comment>A symptom reported or observed for a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Physician">
+    <rdfs:label>Physician</rdfs:label>
+    <rdfs:comment>Licensed medical doctor providing clinical care</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PrimaryCarePhysician">
+    <rdfs:label>PrimaryCarePhysician</rdfs:label>
+    <rdfs:comment>Primary care provider attributed to a patient</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Specialist">
+    <rdfs:label>Specialist</rdfs:label>
+    <rdfs:comment>Specialist physician in a particular medical domain</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MTMPharmacist">
+    <rdfs:label>MTMPharmacist</rdfs:label>
+    <rdfs:comment>Pharmacist providing medication therapy management</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialWorker">
+    <rdfs:label>SocialWorker</rdfs:label>
+    <rdfs:comment>Social worker providing non-clinical support</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#BehavioralHealthSpecialist">
+    <rdfs:label>BehavioralHealthSpecialist</rdfs:label>
+    <rdfs:comment>Specialist in behavioral/mental health</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TransitionsNurse">
+    <rdfs:label>TransitionsNurse</rdfs:label>
+    <rdfs:comment>Nurse managing care transitions</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MTMProgram">
+    <rdfs:label>MTMProgram</rdfs:label>
+    <rdfs:comment>Medication Therapy Management program</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTeamAssignment">
+    <rdfs:label>CareTeamAssignment</rdfs:label>
+    <rdfs:comment>Assignment of a care team member to a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareManager">
+    <rdfs:label>CareManager</rdfs:label>
+    <rdfs:comment>Care manager coordinating patient care activities</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CommunityHealthWorker">
+    <rdfs:label>CommunityHealthWorker</rdfs:label>
+    <rdfs:comment>Community health worker providing outreach</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClinicalOpsDirector">
+    <rdfs:label>ClinicalOpsDirector</rdfs:label>
+    <rdfs:comment>Director overseeing clinical operations</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Condition">
+    <rdfs:label>Condition</rdfs:label>
+    <rdfs:comment>A clinical condition or diagnosis</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ChronicCondition">
+    <rdfs:label>ChronicCondition</rdfs:label>
+    <rdfs:comment>Long-term persistent medical condition</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Condition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#AcuteCondition">
+    <rdfs:label>AcuteCondition</rdfs:label>
+    <rdfs:comment>Short-term medical condition requiring immediate care</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Condition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CardiovascularCondition">
+    <rdfs:label>CardiovascularCondition</rdfs:label>
+    <rdfs:comment>Chronic condition affecting the cardiovascular system</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MetabolicCondition">
+    <rdfs:label>MetabolicCondition</rdfs:label>
+    <rdfs:comment>Chronic condition affecting metabolic function</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RespiratoryCondition">
+    <rdfs:label>RespiratoryCondition</rdfs:label>
+    <rdfs:comment>Chronic condition affecting the respiratory system</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RenalCondition">
+    <rdfs:label>RenalCondition</rdfs:label>
+    <rdfs:comment>Chronic condition affecting kidney function</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MentalHealthCondition">
+    <rdfs:label>MentalHealthCondition</rdfs:label>
+    <rdfs:comment>Chronic behavioral or psychiatric condition</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Medication">
+    <rdfs:label>Medication</rdfs:label>
+    <rdfs:comment>A drug or therapeutic substance</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HighAlertMedication">
+    <rdfs:label>HighAlertMedication</rdfs:label>
+    <rdfs:comment>Medication with high risk of harm if misused</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Medication"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#LabTest">
+    <rdfs:label>LabTest</rdfs:label>
+    <rdfs:comment>A laboratory test ordered for a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#LabResult">
+    <rdfs:label>LabResult</rdfs:label>
+    <rdfs:comment>Result of a laboratory test</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#NormalLabResult">
+    <rdfs:label>NormalLabResult</rdfs:label>
+    <rdfs:comment>Lab result within normal reference range</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#LabResult"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#AbnormalLabResult">
+    <rdfs:label>AbnormalLabResult</rdfs:label>
+    <rdfs:comment>Lab result outside normal reference range</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#LabResult"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CriticalLabResult">
+    <rdfs:label>CriticalLabResult</rdfs:label>
+    <rdfs:comment>Lab result requiring immediate clinical action</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#LabResult"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ImagingResult">
+    <rdfs:label>ImagingResult</rdfs:label>
+    <rdfs:comment>Result of a diagnostic imaging study</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Symptom">
+    <rdfs:label>Symptom</rdfs:label>
+    <rdfs:comment>A clinical symptom reported or observed</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Allergy">
+    <rdfs:label>Allergy</rdfs:label>
+    <rdfs:comment>A patient allergy or adverse drug reaction</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HighRiskState">
+    <rdfs:label>HighRiskState</rdfs:label>
+    <rdfs:comment>Patient state indicating elevated risk of adverse outcomes</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HCCCode">
+    <rdfs:label>HCCCode</rdfs:label>
+    <rdfs:comment>Hierarchical Condition Category risk adjustment code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RiskFactor">
+    <rdfs:label>RiskFactor</rdfs:label>
+    <rdfs:comment>A factor contributing to a patient's risk score</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClinicalRiskFactor">
+    <rdfs:label>ClinicalRiskFactor</rdfs:label>
+    <rdfs:comment>Clinical factor contributing to risk</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#BehavioralRiskFactor">
+    <rdfs:label>BehavioralRiskFactor</rdfs:label>
+    <rdfs:comment>Behavioral factor contributing to risk</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialRiskFactor">
+    <rdfs:label>SocialRiskFactor</rdfs:label>
+    <rdfs:comment>Social determinant factor contributing to risk</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareGapOpenState">
+    <rdfs:label>CareGapOpenState</rdfs:label>
+    <rdfs:comment>State indicating a patient has an open care gap</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#QualityMeasure">
+    <rdfs:label>QualityMeasure</rdfs:label>
+    <rdfs:comment>A measure used to evaluate quality of care</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HEDISMeasure">
+    <rdfs:label>HEDISMeasure</rdfs:label>
+    <rdfs:comment>HEDIS quality measure from NCQA</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CMSStarMeasure">
+    <rdfs:label>CMSStarMeasure</rdfs:label>
+    <rdfs:comment>CMS Star rating quality measure</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CustomMeasure">
+    <rdfs:label>CustomMeasure</rdfs:label>
+    <rdfs:comment>Custom organization-defined quality measure</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareGap">
+    <rdfs:label>CareGap</rdfs:label>
+    <rdfs:comment>A gap in recommended preventive or chronic care</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OpenCareGap">
+    <rdfs:label>OpenCareGap</rdfs:label>
+    <rdfs:comment>A care gap that has not yet been addressed</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClosedCareGap">
+    <rdfs:label>ClosedCareGap</rdfs:label>
+    <rdfs:comment>A care gap that has been addressed and closed</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ExcludedCareGap">
+    <rdfs:label>ExcludedCareGap</rdfs:label>
+    <rdfs:comment>A care gap excluded from measurement</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#InterventionPendingState">
+    <rdfs:label>InterventionPendingState</rdfs:label>
+    <rdfs:comment>State where an intervention is planned</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#InterventionActiveState">
+    <rdfs:label>InterventionActiveState</rdfs:label>
+    <rdfs:comment>State where an intervention is actively underway</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CarePlan">
+    <rdfs:label>CarePlan</rdfs:label>
+    <rdfs:comment>A structured plan for managing a patient's health</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTask">
+    <rdfs:label>CareTask</rdfs:label>
+    <rdfs:comment>A task within a care plan</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OutreachTask">
+    <rdfs:label>OutreachTask</rdfs:label>
+    <rdfs:comment>A care task involving patient outreach</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ReferralTask">
+    <rdfs:label>ReferralTask</rdfs:label>
+    <rdfs:comment>A care task involving specialist referral</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FollowUpTask">
+    <rdfs:label>FollowUpTask</rdfs:label>
+    <rdfs:comment>A care task requiring follow-up with patient</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Encounter">
+    <rdfs:label>Encounter</rdfs:label>
+    <rdfs:comment>A patient-provider interaction</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#InpatientEncounter">
+    <rdfs:label>InpatientEncounter</rdfs:label>
+    <rdfs:comment>A hospital inpatient admission</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#EDEncounter">
+    <rdfs:label>EDEncounter</rdfs:label>
+    <rdfs:comment>An emergency department visit</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OutpatientEncounter">
+    <rdfs:label>OutpatientEncounter</rdfs:label>
+    <rdfs:comment>An outpatient clinic visit</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TelehealthEncounter">
+    <rdfs:label>TelehealthEncounter</rdfs:label>
+    <rdfs:comment>A telehealth or virtual visit</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SNFEncounter">
+    <rdfs:label>SNFEncounter</rdfs:label>
+    <rdfs:comment>A skilled nursing facility stay</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#UtilizationRiskFactor">
+    <rdfs:label>UtilizationRiskFactor</rdfs:label>
+    <rdfs:comment>Risk factor related to healthcare utilization patterns</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Claim">
+    <rdfs:label>Claim</rdfs:label>
+    <rdfs:comment>A healthcare insurance claim</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SDOHBarrier">
+    <rdfs:label>SDOHBarrier</rdfs:label>
+    <rdfs:comment>A social determinant of health barrier</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FoodInsecurityBarrier">
+    <rdfs:label>FoodInsecurityBarrier</rdfs:label>
+    <rdfs:comment>SDOH barrier related to food insecurity</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HousingInstabilityBarrier">
+    <rdfs:label>HousingInstabilityBarrier</rdfs:label>
+    <rdfs:comment>SDOH barrier related to housing instability</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TransportationBarrier">
+    <rdfs:label>TransportationBarrier</rdfs:label>
+    <rdfs:comment>SDOH barrier related to lack of transportation</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialIsolationBarrier">
+    <rdfs:label>SocialIsolationBarrier</rdfs:label>
+    <rdfs:comment>SDOH barrier related to social isolation</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SDOHAssessment">
+    <rdfs:label>SDOHAssessment</rdfs:label>
+    <rdfs:comment>A social needs assessment for a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialCareCoordinationProgram">
+    <rdfs:label>SocialCareCoordinationProgram</rdfs:label>
+    <rdfs:comment>Program coordinating social care services</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FinancialHardshipBarrier">
+    <rdfs:label>FinancialHardshipBarrier</rdfs:label>
+    <rdfs:comment>SDOH barrier related to financial hardship</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#VBCContract">
+    <rdfs:label>VBCContract</rdfs:label>
+    <rdfs:comment>A value-based care contract between payer and provider</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Organization">
+    <rdfs:label>Organization</rdfs:label>
+    <rdfs:comment>A healthcare organization</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HealthSystem">
+    <rdfs:label>HealthSystem</rdfs:label>
+    <rdfs:comment>A large integrated health system</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ACO">
+    <rdfs:label>ACO</rdfs:label>
+    <rdfs:comment>Accountable Care Organization</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MedicalGroup">
+    <rdfs:label>MedicalGroup</rdfs:label>
+    <rdfs:comment>A group medical practice</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Practice">
+    <rdfs:label>Practice</rdfs:label>
+    <rdfs:comment>A clinical practice site</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Pharmacy">
+    <rdfs:label>Pharmacy</rdfs:label>
+    <rdfs:comment>A pharmacy organization</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CommunityOrganization">
+    <rdfs:label>CommunityOrganization</rdfs:label>
+    <rdfs:comment>A community-based organization providing social services</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#EnrolledState">
+    <rdfs:label>EnrolledState</rdfs:label>
+    <rdfs:comment>State indicating patient is enrolled in a program</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TransitionOfCareState">
+    <rdfs:label>TransitionOfCareState</rdfs:label>
+    <rdfs:comment>State indicating patient is in care transition</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#StableState">
+    <rdfs:label>StableState</rdfs:label>
+    <rdfs:comment>State indicating patient condition is stable</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#LostToFollowUpState">
+    <rdfs:label>LostToFollowUpState</rdfs:label>
+    <rdfs:comment>State indicating patient is lost to follow-up</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#DisenrolledState">
+    <rdfs:label>DisenrolledState</rdfs:label>
+    <rdfs:comment>State indicating patient has been disenrolled</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#PatientState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Program">
+    <rdfs:label>Program</rdfs:label>
+    <rdfs:comment>A health management or care program</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ProgramEnrollment">
+    <rdfs:label>ProgramEnrollment</rdfs:label>
+    <rdfs:comment>A patient's enrollment in a health program</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClinicalEvent">
+    <rdfs:label>ClinicalEvent</rdfs:label>
+    <rdfs:comment>A significant clinical event in patient history</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClinicalNote">
+    <rdfs:label>ClinicalNote</rdfs:label>
+    <rdfs:comment>A clinical documentation note</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ImagingStudy">
+    <rdfs:label>ImagingStudy</rdfs:label>
+    <rdfs:comment>A diagnostic imaging study</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Procedure">
+    <rdfs:label>Procedure</rdfs:label>
+    <rdfs:comment>A clinical procedure performed on a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Referral">
+    <rdfs:label>Referral</rdfs:label>
+    <rdfs:comment>A provider-to-provider referral</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Authorization">
+    <rdfs:label>Authorization</rdfs:label>
+    <rdfs:comment>A prior authorization for a service</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Insurance">
+    <rdfs:label>Insurance</rdfs:label>
+    <rdfs:comment>A patient's insurance coverage</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Network">
+    <rdfs:label>Network</rdfs:label>
+    <rdfs:comment>A provider network</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Panel">
+    <rdfs:label>Panel</rdfs:label>
+    <rdfs:comment>A provider's attributed patient panel</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Affiliation">
+    <rdfs:label>Affiliation</rdfs:label>
+    <rdfs:comment>A provider's affiliation with a facility</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#DrugInteraction">
+    <rdfs:label>DrugInteraction</rdfs:label>
+    <rdfs:comment>An interaction between two medications</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#DrugDiseaseInteraction">
+    <rdfs:label>DrugDiseaseInteraction</rdfs:label>
+    <rdfs:comment>An interaction between a drug and a disease state</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#AdverseEffect">
+    <rdfs:label>AdverseEffect</rdfs:label>
+    <rdfs:comment>An adverse effect associated with a medication</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ICD10Code">
+    <rdfs:label>ICD10Code</rdfs:label>
+    <rdfs:comment>An ICD-10 diagnosis or procedure code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CPTCode">
+    <rdfs:label>CPTCode</rdfs:label>
+    <rdfs:comment>A Current Procedural Terminology code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#LOINCCode">
+    <rdfs:label>LOINCCode</rdfs:label>
+    <rdfs:comment>A LOINC laboratory or clinical observation code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#NDCCode">
+    <rdfs:label>NDCCode</rdfs:label>
+    <rdfs:comment>A National Drug Code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SNOMEDCode">
+    <rdfs:label>SNOMEDCode</rdfs:label>
+    <rdfs:comment>A SNOMED CT clinical concept code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HCPCSCode">
+    <rdfs:label>HCPCSCode</rdfs:label>
+    <rdfs:comment>A HCPCS procedure or supply code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RxNormCode">
+    <rdfs:label>RxNormCode</rdfs:label>
+    <rdfs:comment>An RxNorm drug concept code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FHIRResource">
+    <rdfs:label>FHIRResource</rdfs:label>
+    <rdfs:comment>A HL7 FHIR R4 resource</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RiskPredictionModel">
+    <rdfs:label>RiskPredictionModel</rdfs:label>
+    <rdfs:comment>An AI/ML model for predicting patient risk</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RiskScore">
+    <rdfs:label>RiskScore</rdfs:label>
+    <rdfs:comment>A calculated risk score for a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CohortDefinition">
+    <rdfs:label>CohortDefinition</rdfs:label>
+    <rdfs:comment>A definition of a patient cohort</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#StratificationRule">
+    <rdfs:label>StratificationRule</rdfs:label>
+    <rdfs:comment>A rule for stratifying patients by risk or need</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClinicalProtocol">
+    <rdfs:label>ClinicalProtocol</rdfs:label>
+    <rdfs:comment>A clinical care protocol or guideline</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PopulationHealthProgram">
+    <rdfs:label>PopulationHealthProgram</rdfs:label>
+    <rdfs:comment>A population health management program</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HealthEquityMetric">
+    <rdfs:label>HealthEquityMetric</rdfs:label>
+    <rdfs:comment>A metric measuring health equity outcomes</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientEngagementScore">
+    <rdfs:label>PatientEngagementScore</rdfs:label>
+    <rdfs:comment>A score measuring patient engagement level</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SDoHScreening">
+    <rdfs:label>SDoHScreening</rdfs:label>
+    <rdfs:comment>A screening tool for social determinants of health</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ZipCode">
+    <rdfs:label>ZipCode</rdfs:label>
+    <rdfs:comment>A geographic zip code for area-level risk</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ADIScore">
+    <rdfs:label>ADIScore</rdfs:label>
+    <rdfs:comment>Area Deprivation Index score for a geographic area</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#VitalSign">
+    <rdfs:label>VitalSign</rdfs:label>
+    <rdfs:comment>A physiologic vital sign measurement</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FunctionalAssessment">
+    <rdfs:label>FunctionalAssessment</rdfs:label>
+    <rdfs:comment>A functional status or ADL assessment</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Immunization">
+    <rdfs:label>Immunization</rdfs:label>
+    <rdfs:comment>A vaccine or immunization administered to a patient</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Attribution">
+    <rdfs:label>Attribution</rdfs:label>
+    <rdfs:comment>Assignment of a patient to an attributed provider</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#QualityReportCard">
+    <rdfs:label>QualityReportCard</rdfs:label>
+    <rdfs:comment>A quality performance report card for a provider or org</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PopulationSegment">
+    <rdfs:label>PopulationSegment</rdfs:label>
+    <rdfs:comment>A segment of the patient population for analytics</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#DRGCode">
+    <rdfs:label>DRGCode</rdfs:label>
+    <rdfs:comment>Diagnosis Related Group inpatient classification code</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RevenueCode">
+    <rdfs:label>RevenueCode</rdfs:label>
+    <rdfs:comment>UB-04 revenue code on institutional claim</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OutcomesMeasure">
+    <rdfs:label>OutcomesMeasure</rdfs:label>
+    <rdfs:comment>A clinical outcomes measurement</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Discharge">
+    <rdfs:label>Discharge</rdfs:label>
+    <rdfs:comment>A patient discharge from an inpatient or ED encounter</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CarePathway">
+    <rdfs:label>CarePathway</rdfs:label>
+    <rdfs:comment>A structured clinical care pathway for a condition</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PMPM">
+    <rdfs:label>PMPM</rdfs:label>
+    <rdfs:comment>Per Member Per Month capitation payment metric</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TCOC">
+    <rdfs:label>TCOC</rdfs:label>
+    <rdfs:comment>Total Cost of Care metric</rdfs:comment>
+  </owl:Class>
+
+  <!-- ═══ Subclass axioms ═══ -->
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Patient">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Member">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTeamMember">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Physician">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PrimaryCarePhysician">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Specialist">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareManager">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialWorker">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareTeamMember"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ChronicCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Condition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#AcuteCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Condition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CardiovascularCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MetabolicCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RespiratoryCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RenalCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MentalHealthCondition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ChronicCondition"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HEDISMeasure">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CMSStarMeasure">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CustomMeasure">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OpenCareGap">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ClosedCareGap">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ExcludedCareGap">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#InpatientEncounter">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#EDEncounter">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#OutpatientEncounter">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TelehealthEncounter">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HighAlertMedication">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Medication"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#FoodInsecurityBarrier">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HousingInstabilityBarrier">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#TransportationBarrier">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#SocialIsolationBarrier">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HealthSystem">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#ACO">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MedicalGroup">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#Practice">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PatientDiagnosis">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ClinicalObservation"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#LabResult">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ClinicalObservation"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#VitalSign">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#ClinicalObservation"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#RiskFactor">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#HCCCode">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#RiskAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#VBCContract">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#FinancialArrangement"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CapitationPayment">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#FinancialArrangement"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CarePlan">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareManagementEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTask">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareManagementEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTeamAssignment">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#CareManagementEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#MedicalClaim">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Claim"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PharmacyClaim">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#Claim"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#PriorAuthorization">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#UtilizationEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://ontology.vbc.internal/vbc#CareTransition">
+    <rdfs:subClassOf rdf:resource="https://ontology.vbc.internal/vbc#UtilizationEvent"/>
+  </owl:Class>
+
+  <!-- ═══ Object Properties ═══ -->
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasDiagnosis">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasCareTeamAssignment">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#CareTeamAssignment"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:about="https://ontology.vbc.internal/vbc#hasPCP">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#PrimaryCarePhysician"/>
+  </owl:FunctionalProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasCareGap">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasRiskScore">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasSDOHBarrier">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasEncounter">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasCarePlan">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#CarePlan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#diagnosedWith">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Condition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#mapsToHCC">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#HCCCode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#forMember">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#belongsToNetwork">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#includesTask">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CarePlan"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#forMeasure">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasLabResult">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#LabResult"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#treatedBy">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#memberOf">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#MedicalGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#hasAttribution">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Attribution"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#coveredUnder">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#VBCContract"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#prescribedTo">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Medication"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#performedAt">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#Organization"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://ontology.vbc.internal/vbc#closedBy">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#ClosedCareGap"/>
+    <rdfs:range  rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+  </owl:ObjectProperty>
+
+  <!-- ═══ Data Properties ═══ -->
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#mrn">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#dateOfBirth">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#sex">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#preferredLanguage">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#adiScore">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#riskTier">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#npi">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#hasFullName">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Person"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#specialty">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#networkId">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Physician"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#icd10CodeValue">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#icd10Description">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#diagnosisDate">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#diagnosisType">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#PatientDiagnosis"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#hccCode">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#HCCCode"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#rafWeight">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#HCCCode"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#riskScoreValue">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#rafScore">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#hccCount">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#topHccCode">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#RiskFactor"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#gapStatus">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#measureId">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#measureName">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#QualityMeasure"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#gapOpenDate">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CareGap"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#gapCloseDate">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#ClosedCareGap"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#barrierType">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#barrierCategory">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#severity">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#icd10ZCode">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#SDOHBarrier"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#encounterType">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#serviceDate">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Encounter"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#losdays">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#InpatientEncounter"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#completionStatus">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#CareTask"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#pmpmAmount">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#VBCContract"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#tcocAmount">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#VBCContract"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://ontology.vbc.internal/vbc#assignedPCPNPI">
+    <rdfs:domain rdf:resource="https://ontology.vbc.internal/vbc#Patient"/>
+    <rdfs:range  rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>

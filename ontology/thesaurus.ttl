@@ -1,0 +1,190 @@
+@prefix vbc:  <https://ontology.vbc.internal/vbc#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# VBC Ontology Thesaurus — synonyms, alt labels, broader/narrower
+
+vbc:Patient
+    skos:altLabel "Beneficiary"@en ;
+    skos:altLabel "Enrollee"@en ;
+    skos:altLabel "Covered Life"@en ;
+    skos:altLabel "Plan Member"@en ;
+    skos:exactMatch vbc:Member ;
+    skos:related vbc:CareTeamMember .
+
+vbc:Member
+    skos:altLabel "Beneficiary"@en ;
+    skos:altLabel "Enrollee"@en ;
+    skos:altLabel "Covered Life"@en ;
+    skos:exactMatch vbc:Patient .
+
+vbc:PrimaryCarePhysician
+    skos:altLabel "PCP"@en ;
+    skos:altLabel "Primary Care Doctor"@en ;
+    skos:altLabel "Attending Physician"@en ;
+    skos:altLabel "Primary Care Provider"@en ;
+    skos:broader vbc:Physician .
+
+vbc:Specialist
+    skos:altLabel "Consulting Physician"@en ;
+    skos:altLabel "Subspecialist"@en ;
+    skos:broader vbc:Physician .
+
+vbc:HCCCode
+    skos:altLabel "HCC"@en ;
+    skos:altLabel "Hierarchical Condition Category"@en ;
+    skos:altLabel "Risk Adjustment Category"@en ;
+    skos:related vbc:RAFScore ;
+    skos:related vbc:RiskFactor .
+
+vbc:QualityMeasure
+    skos:altLabel "Quality Metric"@en ;
+    skos:altLabel "Performance Measure"@en ;
+    skos:altLabel "HEDIS Measure"@en ;
+    skos:narrower vbc:HEDISMeasure ;
+    skos:narrower vbc:CMSStarMeasure .
+
+vbc:CareGap
+    skos:altLabel "Quality Gap"@en ;
+    skos:altLabel "Open Gap"@en ;
+    skos:altLabel "Measure Gap"@en ;
+    skos:altLabel "Care Opportunity"@en ;
+    skos:related vbc:QualityMeasure .
+
+vbc:OpenCareGap
+    skos:altLabel "Open Quality Gap"@en ;
+    skos:altLabel "Unresolved Care Gap"@en ;
+    skos:broader vbc:CareGap .
+
+vbc:ClosedCareGap
+    skos:altLabel "Resolved Gap"@en ;
+    skos:altLabel "Closed Quality Gap"@en ;
+    skos:broader vbc:CareGap .
+
+vbc:PMPM
+    skos:altLabel "Per Member Per Month"@en ;
+    skos:altLabel "Capitation Rate"@en ;
+    skos:altLabel "Monthly Premium"@en ;
+    skos:related vbc:VBCContract ;
+    skos:related vbc:TCOC .
+
+vbc:TCOC
+    skos:altLabel "Total Cost of Care"@en ;
+    skos:altLabel "Total Medical Expense"@en ;
+    skos:altLabel "TME"@en ;
+    skos:related vbc:PMPM .
+
+vbc:SDOHBarrier
+    skos:altLabel "Social Barrier"@en ;
+    skos:altLabel "Social Need"@en ;
+    skos:altLabel "Non-Clinical Barrier"@en ;
+    skos:altLabel "Z-Code Factor"@en ;
+    skos:narrower vbc:FoodInsecurityBarrier ;
+    skos:narrower vbc:HousingInstabilityBarrier ;
+    skos:narrower vbc:TransportationBarrier ;
+    skos:narrower vbc:SocialIsolationBarrier .
+
+vbc:FoodInsecurityBarrier
+    skos:altLabel "Food Insecurity"@en ;
+    skos:altLabel "Hunger"@en ;
+    skos:altLabel "Food Desert"@en ;
+    skos:broader vbc:SDOHBarrier .
+
+vbc:HousingInstabilityBarrier
+    skos:altLabel "Housing Insecurity"@en ;
+    skos:altLabel "Homelessness Risk"@en ;
+    skos:altLabel "Unstable Housing"@en ;
+    skos:broader vbc:SDOHBarrier .
+
+vbc:TransportationBarrier
+    skos:altLabel "Transportation Need"@en ;
+    skos:altLabel "Lack of Transportation"@en ;
+    skos:broader vbc:SDOHBarrier .
+
+vbc:SocialIsolationBarrier
+    skos:altLabel "Social Isolation"@en ;
+    skos:altLabel "Loneliness"@en ;
+    skos:altLabel "Social Exclusion"@en ;
+    skos:broader vbc:SDOHBarrier .
+
+vbc:Attribution
+    skos:altLabel "Panel Assignment"@en ;
+    skos:altLabel "Patient Attribution"@en ;
+    skos:altLabel "Attributed Patient"@en ;
+    skos:related vbc:PrimaryCarePhysician .
+
+vbc:RAFScore
+    skos:altLabel "RAF"@en ;
+    skos:altLabel "Risk Adjustment Factor"@en ;
+    skos:altLabel "CMS RAF"@en ;
+    skos:related vbc:HCCCode ;
+    skos:related vbc:RiskFactor .
+
+vbc:RiskFactor
+    skos:altLabel "Risk Score"@en ;
+    skos:altLabel "Clinical Risk"@en ;
+    skos:altLabel "Predictive Risk Score"@en ;
+    skos:related vbc:HCCCode ;
+    skos:related vbc:RAFScore .
+
+vbc:PatientDiagnosis
+    skos:altLabel "Diagnosis"@en ;
+    skos:altLabel "Dx"@en ;
+    skos:altLabel "Problem"@en ;
+    skos:altLabel "Clinical Finding"@en ;
+    skos:related vbc:HCCCode .
+
+vbc:CarePlan
+    skos:altLabel "Care Program"@en ;
+    skos:altLabel "Treatment Plan"@en ;
+    skos:altLabel "Care Pathway"@en ;
+    skos:related vbc:CareTask .
+
+vbc:HEDISMeasure
+    skos:altLabel "HEDIS"@en ;
+    skos:altLabel "NCQA Measure"@en ;
+    skos:altLabel "HEDIS Quality Measure"@en ;
+    skos:broader vbc:QualityMeasure .
+
+vbc:CMSStarMeasure
+    skos:altLabel "CMS Stars"@en ;
+    skos:altLabel "Star Rating Measure"@en ;
+    skos:altLabel "Part C/D Star Measure"@en ;
+    skos:broader vbc:QualityMeasure .
+
+vbc:ACO
+    skos:altLabel "Accountable Care Organization"@en ;
+    skos:altLabel "Care Organization"@en ;
+    skos:broader vbc:Organization .
+
+vbc:InpatientEncounter
+    skos:altLabel "Hospital Admission"@en ;
+    skos:altLabel "Inpatient Stay"@en ;
+    skos:altLabel "IP Encounter"@en ;
+    skos:broader vbc:Encounter .
+
+vbc:EDEncounter
+    skos:altLabel "Emergency Visit"@en ;
+    skos:altLabel "ER Visit"@en ;
+    skos:altLabel "Emergency Department Visit"@en ;
+    skos:broader vbc:Encounter .
+
+vbc:VBCContract
+    skos:altLabel "Value-Based Contract"@en ;
+    skos:altLabel "Risk Contract"@en ;
+    skos:altLabel "Shared Savings Contract"@en ;
+    skos:related vbc:PMPM ;
+    skos:related vbc:TCOC .
+
+vbc:PDCMeasure
+    skos:altLabel "Proportion of Days Covered"@en ;
+    skos:altLabel "Medication Adherence"@en ;
+    skos:altLabel "PDC"@en ;
+    skos:related vbc:QualityMeasure .
+
+vbc:PriorAuthorization
+    skos:altLabel "PA"@en ;
+    skos:altLabel "Prior Auth"@en ;
+    skos:altLabel "Pre-authorization"@en ;
+    skos:altLabel "Precertification"@en ;
+    skos:broader vbc:UtilizationEvent .

@@ -1,0 +1,2213 @@
+{
+  "namespace": "https://ontology.vbc.internal/vbc#",
+  "version": "1.1",
+  "generatedFrom": "VBC_Ontology_v1_1.docx",
+  "stats": {
+    "classes": 136,
+    "objectProperties": 71,
+    "namedIndividuals": 86,
+    "domains": 12
+  },
+  "domains": [
+    {
+      "id": "vbc:PatientMemberDomain",
+      "name": "Patient/Member",
+      "entityLead": "Patient"
+    },
+    {
+      "id": "vbc:ProviderDomain",
+      "name": "Provider",
+      "entityLead": "Provider"
+    },
+    {
+      "id": "vbc:ClinicalDomain",
+      "name": "Clinical",
+      "entityLead": "Condition"
+    },
+    {
+      "id": "vbc:ClaimsUtilizationDomain",
+      "name": "Claims & Utilization",
+      "entityLead": "Claim"
+    },
+    {
+      "id": "vbc:PharmacyDomain",
+      "name": "Pharmacy",
+      "entityLead": "Medication"
+    },
+    {
+      "id": "vbc:QualityDomain",
+      "name": "Quality",
+      "entityLead": "QualityMeasure"
+    },
+    {
+      "id": "vbc:RiskDomain",
+      "name": "Risk",
+      "entityLead": "RiskFactor"
+    },
+    {
+      "id": "vbc:SDOHDomain",
+      "name": "SDOH",
+      "entityLead": "SDOHBarrier"
+    },
+    {
+      "id": "vbc:FinancialDomain",
+      "name": "Financial",
+      "entityLead": "VBCContract"
+    },
+    {
+      "id": "vbc:CareManagementDomain",
+      "name": "Care Management",
+      "entityLead": "CarePlan"
+    },
+    {
+      "id": "vbc:UtilizationManagementDomain",
+      "name": "Utilization Management",
+      "entityLead": "Encounter"
+    },
+    {
+      "id": "vbc:AIMLDomain",
+      "name": "AI/ML",
+      "entityLead": "RiskPredictionModel"
+    }
+  ],
+  "classes": [
+    {
+      "id": "vbc:Person",
+      "label": "Person",
+      "domain": "Patient/Member",
+      "definition": "A human being in the healthcare ecosystem",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Patient",
+      "label": "Patient",
+      "domain": "Patient/Member",
+      "definition": "Individual receiving healthcare services",
+      "subClassOf": "vbc:Person"
+    },
+    {
+      "id": "vbc:CareTeamMember",
+      "label": "CareTeamMember",
+      "domain": "Patient/Member",
+      "definition": "Healthcare professional involved in patient care",
+      "subClassOf": "vbc:Person"
+    },
+    {
+      "id": "vbc:PatientState",
+      "label": "PatientState",
+      "domain": "Patient/Member",
+      "definition": "Current clinical or administrative state of a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PatientStateTransition",
+      "label": "PatientStateTransition",
+      "domain": "Patient/Member",
+      "definition": "A change from one patient state to another",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PatientDiagnosis",
+      "label": "PatientDiagnosis",
+      "domain": "Patient/Member",
+      "definition": "A diagnosis assigned to a specific patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PatientMedication",
+      "label": "PatientMedication",
+      "domain": "Patient/Member",
+      "definition": "A medication prescribed to a specific patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PatientSymptom",
+      "label": "PatientSymptom",
+      "domain": "Patient/Member",
+      "definition": "A symptom reported or observed for a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Physician",
+      "label": "Physician",
+      "domain": "Provider",
+      "definition": "Licensed medical doctor providing clinical care",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:PrimaryCarePhysician",
+      "label": "PrimaryCarePhysician",
+      "domain": "Provider",
+      "definition": "Primary care provider attributed to a patient",
+      "subClassOf": "vbc:Physician"
+    },
+    {
+      "id": "vbc:Specialist",
+      "label": "Specialist",
+      "domain": "Provider",
+      "definition": "Specialist physician in a particular medical domain",
+      "subClassOf": "vbc:Physician"
+    },
+    {
+      "id": "vbc:MTMPharmacist",
+      "label": "MTMPharmacist",
+      "domain": "Provider",
+      "definition": "Pharmacist providing medication therapy management",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:SocialWorker",
+      "label": "SocialWorker",
+      "domain": "Provider",
+      "definition": "Social worker providing non-clinical support",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:BehavioralHealthSpecialist",
+      "label": "BehavioralHealthSpecialist",
+      "domain": "Provider",
+      "definition": "Specialist in behavioral/mental health",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:TransitionsNurse",
+      "label": "TransitionsNurse",
+      "domain": "Provider",
+      "definition": "Nurse managing care transitions",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:MTMProgram",
+      "label": "MTMProgram",
+      "domain": "Provider",
+      "definition": "Medication Therapy Management program",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CareTeamAssignment",
+      "label": "CareTeamAssignment",
+      "domain": "Provider",
+      "definition": "Assignment of a care team member to a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CareManager",
+      "label": "CareManager",
+      "domain": "Provider",
+      "definition": "Care manager coordinating patient care activities",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:CommunityHealthWorker",
+      "label": "CommunityHealthWorker",
+      "domain": "Provider",
+      "definition": "Community health worker providing outreach",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:ClinicalOpsDirector",
+      "label": "ClinicalOpsDirector",
+      "domain": "Provider",
+      "definition": "Director overseeing clinical operations",
+      "subClassOf": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:Condition",
+      "label": "Condition",
+      "domain": "Clinical",
+      "definition": "A clinical condition or diagnosis",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ChronicCondition",
+      "label": "ChronicCondition",
+      "domain": "Clinical",
+      "definition": "Long-term persistent medical condition",
+      "subClassOf": "vbc:Condition"
+    },
+    {
+      "id": "vbc:AcuteCondition",
+      "label": "AcuteCondition",
+      "domain": "Clinical",
+      "definition": "Short-term medical condition requiring immediate care",
+      "subClassOf": "vbc:Condition"
+    },
+    {
+      "id": "vbc:CardiovascularCondition",
+      "label": "CardiovascularCondition",
+      "domain": "Clinical",
+      "definition": "Chronic condition affecting the cardiovascular system",
+      "subClassOf": "vbc:ChronicCondition"
+    },
+    {
+      "id": "vbc:MetabolicCondition",
+      "label": "MetabolicCondition",
+      "domain": "Clinical",
+      "definition": "Chronic condition affecting metabolic function",
+      "subClassOf": "vbc:ChronicCondition"
+    },
+    {
+      "id": "vbc:RespiratoryCondition",
+      "label": "RespiratoryCondition",
+      "domain": "Clinical",
+      "definition": "Chronic condition affecting the respiratory system",
+      "subClassOf": "vbc:ChronicCondition"
+    },
+    {
+      "id": "vbc:RenalCondition",
+      "label": "RenalCondition",
+      "domain": "Clinical",
+      "definition": "Chronic condition affecting kidney function",
+      "subClassOf": "vbc:ChronicCondition"
+    },
+    {
+      "id": "vbc:MentalHealthCondition",
+      "label": "MentalHealthCondition",
+      "domain": "Clinical",
+      "definition": "Chronic behavioral or psychiatric condition",
+      "subClassOf": "vbc:ChronicCondition"
+    },
+    {
+      "id": "vbc:Medication",
+      "label": "Medication",
+      "domain": "Pharmacy",
+      "definition": "A drug or therapeutic substance",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HighAlertMedication",
+      "label": "HighAlertMedication",
+      "domain": "Pharmacy",
+      "definition": "Medication with high risk of harm if misused",
+      "subClassOf": "vbc:Medication"
+    },
+    {
+      "id": "vbc:LabTest",
+      "label": "LabTest",
+      "domain": "Clinical",
+      "definition": "A laboratory test ordered for a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:LabResult",
+      "label": "LabResult",
+      "domain": "Clinical",
+      "definition": "Result of a laboratory test",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:NormalLabResult",
+      "label": "NormalLabResult",
+      "domain": "Clinical",
+      "definition": "Lab result within normal reference range",
+      "subClassOf": "vbc:LabResult"
+    },
+    {
+      "id": "vbc:AbnormalLabResult",
+      "label": "AbnormalLabResult",
+      "domain": "Clinical",
+      "definition": "Lab result outside normal reference range",
+      "subClassOf": "vbc:LabResult"
+    },
+    {
+      "id": "vbc:CriticalLabResult",
+      "label": "CriticalLabResult",
+      "domain": "Clinical",
+      "definition": "Lab result requiring immediate clinical action",
+      "subClassOf": "vbc:LabResult"
+    },
+    {
+      "id": "vbc:ImagingResult",
+      "label": "ImagingResult",
+      "domain": "Clinical",
+      "definition": "Result of a diagnostic imaging study",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Symptom",
+      "label": "Symptom",
+      "domain": "Clinical",
+      "definition": "A clinical symptom reported or observed",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Allergy",
+      "label": "Allergy",
+      "domain": "Clinical",
+      "definition": "A patient allergy or adverse drug reaction",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HighRiskState",
+      "label": "HighRiskState",
+      "domain": "Risk",
+      "definition": "Patient state indicating elevated risk of adverse outcomes",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:HCCCode",
+      "label": "HCCCode",
+      "domain": "Risk",
+      "definition": "Hierarchical Condition Category risk adjustment code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:RiskFactor",
+      "label": "RiskFactor",
+      "domain": "Risk",
+      "definition": "A factor contributing to a patient's risk score",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ClinicalRiskFactor",
+      "label": "ClinicalRiskFactor",
+      "domain": "Risk",
+      "definition": "Clinical factor contributing to risk",
+      "subClassOf": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:BehavioralRiskFactor",
+      "label": "BehavioralRiskFactor",
+      "domain": "Risk",
+      "definition": "Behavioral factor contributing to risk",
+      "subClassOf": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:SocialRiskFactor",
+      "label": "SocialRiskFactor",
+      "domain": "Risk",
+      "definition": "Social determinant factor contributing to risk",
+      "subClassOf": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:CareGapOpenState",
+      "label": "CareGapOpenState",
+      "domain": "Quality",
+      "definition": "State indicating a patient has an open care gap",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:QualityMeasure",
+      "label": "QualityMeasure",
+      "domain": "Quality",
+      "definition": "A measure used to evaluate quality of care",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HEDISMeasure",
+      "label": "HEDISMeasure",
+      "domain": "Quality",
+      "definition": "HEDIS quality measure from NCQA",
+      "subClassOf": "vbc:QualityMeasure"
+    },
+    {
+      "id": "vbc:CMSStarMeasure",
+      "label": "CMSStarMeasure",
+      "domain": "Quality",
+      "definition": "CMS Star rating quality measure",
+      "subClassOf": "vbc:QualityMeasure"
+    },
+    {
+      "id": "vbc:CustomMeasure",
+      "label": "CustomMeasure",
+      "domain": "Quality",
+      "definition": "Custom organization-defined quality measure",
+      "subClassOf": "vbc:QualityMeasure"
+    },
+    {
+      "id": "vbc:CareGap",
+      "label": "CareGap",
+      "domain": "Quality",
+      "definition": "A gap in recommended preventive or chronic care",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:OpenCareGap",
+      "label": "OpenCareGap",
+      "domain": "Quality",
+      "definition": "A care gap that has not yet been addressed",
+      "subClassOf": "vbc:CareGap"
+    },
+    {
+      "id": "vbc:ClosedCareGap",
+      "label": "ClosedCareGap",
+      "domain": "Quality",
+      "definition": "A care gap that has been addressed and closed",
+      "subClassOf": "vbc:CareGap"
+    },
+    {
+      "id": "vbc:ExcludedCareGap",
+      "label": "ExcludedCareGap",
+      "domain": "Quality",
+      "definition": "A care gap excluded from measurement",
+      "subClassOf": "vbc:CareGap"
+    },
+    {
+      "id": "vbc:InterventionPendingState",
+      "label": "InterventionPendingState",
+      "domain": "Care Management",
+      "definition": "State where an intervention is planned",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:InterventionActiveState",
+      "label": "InterventionActiveState",
+      "domain": "Care Management",
+      "definition": "State where an intervention is actively underway",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:CarePlan",
+      "label": "CarePlan",
+      "domain": "Care Management",
+      "definition": "A structured plan for managing a patient's health",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CareTask",
+      "label": "CareTask",
+      "domain": "Care Management",
+      "definition": "A task within a care plan",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:OutreachTask",
+      "label": "OutreachTask",
+      "domain": "Care Management",
+      "definition": "A care task involving patient outreach",
+      "subClassOf": "vbc:CareTask"
+    },
+    {
+      "id": "vbc:ReferralTask",
+      "label": "ReferralTask",
+      "domain": "Care Management",
+      "definition": "A care task involving specialist referral",
+      "subClassOf": "vbc:CareTask"
+    },
+    {
+      "id": "vbc:FollowUpTask",
+      "label": "FollowUpTask",
+      "domain": "Care Management",
+      "definition": "A care task requiring follow-up with patient",
+      "subClassOf": "vbc:CareTask"
+    },
+    {
+      "id": "vbc:Encounter",
+      "label": "Encounter",
+      "domain": "Claims & Utilization",
+      "definition": "A patient-provider interaction",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:InpatientEncounter",
+      "label": "InpatientEncounter",
+      "domain": "Claims & Utilization",
+      "definition": "A hospital inpatient admission",
+      "subClassOf": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:EDEncounter",
+      "label": "EDEncounter",
+      "domain": "Claims & Utilization",
+      "definition": "An emergency department visit",
+      "subClassOf": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:OutpatientEncounter",
+      "label": "OutpatientEncounter",
+      "domain": "Claims & Utilization",
+      "definition": "An outpatient clinic visit",
+      "subClassOf": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:TelehealthEncounter",
+      "label": "TelehealthEncounter",
+      "domain": "Claims & Utilization",
+      "definition": "A telehealth or virtual visit",
+      "subClassOf": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:SNFEncounter",
+      "label": "SNFEncounter",
+      "domain": "Claims & Utilization",
+      "definition": "A skilled nursing facility stay",
+      "subClassOf": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:UtilizationRiskFactor",
+      "label": "UtilizationRiskFactor",
+      "domain": "Claims & Utilization",
+      "definition": "Risk factor related to healthcare utilization patterns",
+      "subClassOf": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:Claim",
+      "label": "Claim",
+      "domain": "Claims & Utilization",
+      "definition": "A healthcare insurance claim",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:SDOHBarrier",
+      "label": "SDOHBarrier",
+      "domain": "SDOH",
+      "definition": "A social determinant of health barrier",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:FoodInsecurityBarrier",
+      "label": "FoodInsecurityBarrier",
+      "domain": "SDOH",
+      "definition": "SDOH barrier related to food insecurity",
+      "subClassOf": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:HousingInstabilityBarrier",
+      "label": "HousingInstabilityBarrier",
+      "domain": "SDOH",
+      "definition": "SDOH barrier related to housing instability",
+      "subClassOf": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:TransportationBarrier",
+      "label": "TransportationBarrier",
+      "domain": "SDOH",
+      "definition": "SDOH barrier related to lack of transportation",
+      "subClassOf": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:SocialIsolationBarrier",
+      "label": "SocialIsolationBarrier",
+      "domain": "SDOH",
+      "definition": "SDOH barrier related to social isolation",
+      "subClassOf": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:SDOHAssessment",
+      "label": "SDOHAssessment",
+      "domain": "SDOH",
+      "definition": "A social needs assessment for a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:SocialCareCoordinationProgram",
+      "label": "SocialCareCoordinationProgram",
+      "domain": "SDOH",
+      "definition": "Program coordinating social care services",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:FinancialHardshipBarrier",
+      "label": "FinancialHardshipBarrier",
+      "domain": "Financial",
+      "definition": "SDOH barrier related to financial hardship",
+      "subClassOf": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:VBCContract",
+      "label": "VBCContract",
+      "domain": "Financial",
+      "definition": "A value-based care contract between payer and provider",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Organization",
+      "label": "Organization",
+      "domain": "Cross-Domain",
+      "definition": "A healthcare organization",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HealthSystem",
+      "label": "HealthSystem",
+      "domain": "Cross-Domain",
+      "definition": "A large integrated health system",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:ACO",
+      "label": "ACO",
+      "domain": "Cross-Domain",
+      "definition": "Accountable Care Organization",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:MedicalGroup",
+      "label": "MedicalGroup",
+      "domain": "Cross-Domain",
+      "definition": "A group medical practice",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:Practice",
+      "label": "Practice",
+      "domain": "Cross-Domain",
+      "definition": "A clinical practice site",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:Pharmacy",
+      "label": "Pharmacy",
+      "domain": "Cross-Domain",
+      "definition": "A pharmacy organization",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:CommunityOrganization",
+      "label": "CommunityOrganization",
+      "domain": "Cross-Domain",
+      "definition": "A community-based organization providing social services",
+      "subClassOf": "vbc:Organization"
+    },
+    {
+      "id": "vbc:EnrolledState",
+      "label": "EnrolledState",
+      "domain": "Patient/Member",
+      "definition": "State indicating patient is enrolled in a program",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:TransitionOfCareState",
+      "label": "TransitionOfCareState",
+      "domain": "Patient/Member",
+      "definition": "State indicating patient is in care transition",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:StableState",
+      "label": "StableState",
+      "domain": "Patient/Member",
+      "definition": "State indicating patient condition is stable",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:LostToFollowUpState",
+      "label": "LostToFollowUpState",
+      "domain": "Patient/Member",
+      "definition": "State indicating patient is lost to follow-up",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:DisenrolledState",
+      "label": "DisenrolledState",
+      "domain": "Patient/Member",
+      "definition": "State indicating patient has been disenrolled",
+      "subClassOf": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:Program",
+      "label": "Program",
+      "domain": "Care Management",
+      "definition": "A health management or care program",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ProgramEnrollment",
+      "label": "ProgramEnrollment",
+      "domain": "Care Management",
+      "definition": "A patient's enrollment in a health program",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ClinicalEvent",
+      "label": "ClinicalEvent",
+      "domain": "Clinical",
+      "definition": "A significant clinical event in patient history",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ClinicalNote",
+      "label": "ClinicalNote",
+      "domain": "Clinical",
+      "definition": "A clinical documentation note",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ImagingStudy",
+      "label": "ImagingStudy",
+      "domain": "Clinical",
+      "definition": "A diagnostic imaging study",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Procedure",
+      "label": "Procedure",
+      "domain": "Clinical",
+      "definition": "A clinical procedure performed on a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Referral",
+      "label": "Referral",
+      "domain": "Utilization Management",
+      "definition": "A provider-to-provider referral",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Authorization",
+      "label": "Authorization",
+      "domain": "Utilization Management",
+      "definition": "A prior authorization for a service",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Insurance",
+      "label": "Insurance",
+      "domain": "Financial",
+      "definition": "A patient's insurance coverage",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Network",
+      "label": "Network",
+      "domain": "Provider",
+      "definition": "A provider network",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Panel",
+      "label": "Panel",
+      "domain": "Provider",
+      "definition": "A provider's attributed patient panel",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Affiliation",
+      "label": "Affiliation",
+      "domain": "Provider",
+      "definition": "A provider's affiliation with a facility",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:DrugInteraction",
+      "label": "DrugInteraction",
+      "domain": "Pharmacy",
+      "definition": "An interaction between two medications",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:DrugDiseaseInteraction",
+      "label": "DrugDiseaseInteraction",
+      "domain": "Pharmacy",
+      "definition": "An interaction between a drug and a disease state",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:AdverseEffect",
+      "label": "AdverseEffect",
+      "domain": "Pharmacy",
+      "definition": "An adverse effect associated with a medication",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ICD10Code",
+      "label": "ICD10Code",
+      "domain": "Clinical",
+      "definition": "An ICD-10 diagnosis or procedure code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CPTCode",
+      "label": "CPTCode",
+      "domain": "Claims & Utilization",
+      "definition": "A Current Procedural Terminology code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:LOINCCode",
+      "label": "LOINCCode",
+      "domain": "Clinical",
+      "definition": "A LOINC laboratory or clinical observation code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:NDCCode",
+      "label": "NDCCode",
+      "domain": "Pharmacy",
+      "definition": "A National Drug Code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:SNOMEDCode",
+      "label": "SNOMEDCode",
+      "domain": "Clinical",
+      "definition": "A SNOMED CT clinical concept code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HCPCSCode",
+      "label": "HCPCSCode",
+      "domain": "Claims & Utilization",
+      "definition": "A HCPCS procedure or supply code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:RxNormCode",
+      "label": "RxNormCode",
+      "domain": "Pharmacy",
+      "definition": "An RxNorm drug concept code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:FHIRResource",
+      "label": "FHIRResource",
+      "domain": "Cross-Domain",
+      "definition": "A HL7 FHIR R4 resource",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:RiskPredictionModel",
+      "label": "RiskPredictionModel",
+      "domain": "AI/ML",
+      "definition": "An AI/ML model for predicting patient risk",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:RiskScore",
+      "label": "RiskScore",
+      "domain": "Risk",
+      "definition": "A calculated risk score for a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CohortDefinition",
+      "label": "CohortDefinition",
+      "domain": "AI/ML",
+      "definition": "A definition of a patient cohort",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:StratificationRule",
+      "label": "StratificationRule",
+      "domain": "AI/ML",
+      "definition": "A rule for stratifying patients by risk or need",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ClinicalProtocol",
+      "label": "ClinicalProtocol",
+      "domain": "Care Management",
+      "definition": "A clinical care protocol or guideline",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PopulationHealthProgram",
+      "label": "PopulationHealthProgram",
+      "domain": "Care Management",
+      "definition": "A population health management program",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:HealthEquityMetric",
+      "label": "HealthEquityMetric",
+      "domain": "Quality",
+      "definition": "A metric measuring health equity outcomes",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PatientEngagementScore",
+      "label": "PatientEngagementScore",
+      "domain": "Care Management",
+      "definition": "A score measuring patient engagement level",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:SDoHScreening",
+      "label": "SDoHScreening",
+      "domain": "SDOH",
+      "definition": "A screening tool for social determinants of health",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ZipCode",
+      "label": "ZipCode",
+      "domain": "SDOH",
+      "definition": "A geographic zip code for area-level risk",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:ADIScore",
+      "label": "ADIScore",
+      "domain": "SDOH",
+      "definition": "Area Deprivation Index score for a geographic area",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:VitalSign",
+      "label": "VitalSign",
+      "domain": "Clinical",
+      "definition": "A physiologic vital sign measurement",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:FunctionalAssessment",
+      "label": "FunctionalAssessment",
+      "domain": "Clinical",
+      "definition": "A functional status or ADL assessment",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Immunization",
+      "label": "Immunization",
+      "domain": "Clinical",
+      "definition": "A vaccine or immunization administered to a patient",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:Attribution",
+      "label": "Attribution",
+      "domain": "Patient/Member",
+      "definition": "Assignment of a patient to an attributed provider",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:QualityReportCard",
+      "label": "QualityReportCard",
+      "domain": "Quality",
+      "definition": "A quality performance report card for a provider or org",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PopulationSegment",
+      "label": "PopulationSegment",
+      "domain": "AI/ML",
+      "definition": "A segment of the patient population for analytics",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:DRGCode",
+      "label": "DRGCode",
+      "domain": "Claims & Utilization",
+      "definition": "Diagnosis Related Group inpatient classification code",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:RevenueCode",
+      "label": "RevenueCode",
+      "domain": "Claims & Utilization",
+      "definition": "UB-04 revenue code on institutional claim",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:OutcomesMeasure",
+      "label": "OutcomesMeasure",
+      "domain": "Quality",
+      "definition": "A clinical outcomes measurement",
+      "subClassOf": "vbc:QualityMeasure"
+    },
+    {
+      "id": "vbc:Discharge",
+      "label": "Discharge",
+      "domain": "Claims & Utilization",
+      "definition": "A patient discharge from an inpatient or ED encounter",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:CarePathway",
+      "label": "CarePathway",
+      "domain": "Care Management",
+      "definition": "A structured clinical care pathway for a condition",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:PMPM",
+      "label": "PMPM",
+      "domain": "Financial",
+      "definition": "Per Member Per Month capitation payment metric",
+      "subClassOf": null
+    },
+    {
+      "id": "vbc:TCOC",
+      "label": "TCOC",
+      "domain": "Financial",
+      "definition": "Total Cost of Care metric",
+      "subClassOf": null
+    }
+  ],
+  "objectProperties": [
+    {
+      "id": "vbc:hasCurrentState",
+      "label": "hasCurrentState",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:hasStateTransition",
+      "label": "hasStateTransition",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientStateTransition"
+    },
+    {
+      "id": "vbc:transitionedTo",
+      "label": "transitionedTo",
+      "domain": "vbc:PatientStateTransition",
+      "range": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:transitionedFrom",
+      "label": "transitionedFrom",
+      "domain": "vbc:PatientStateTransition",
+      "range": "vbc:PatientState"
+    },
+    {
+      "id": "vbc:triggeredByEvent",
+      "label": "triggeredByEvent",
+      "domain": "vbc:PatientStateTransition",
+      "range": "vbc:ClinicalEvent"
+    },
+    {
+      "id": "vbc:hasCareTeamAssignment",
+      "label": "hasCareTeamAssignment",
+      "domain": "vbc:Patient",
+      "range": "vbc:CareTeamAssignment"
+    },
+    {
+      "id": "vbc:hasPhysician",
+      "label": "hasPhysician",
+      "domain": "vbc:Patient",
+      "range": "vbc:Physician"
+    },
+    {
+      "id": "vbc:hasPCP",
+      "label": "hasPCP",
+      "domain": "vbc:Patient",
+      "range": "vbc:PrimaryCarePhysician",
+      "isFunctional": true
+    },
+    {
+      "id": "vbc:hasCareManager",
+      "label": "hasCareManager",
+      "domain": "vbc:Patient",
+      "range": "vbc:CareManager"
+    },
+    {
+      "id": "vbc:hasMTMPharmacist",
+      "label": "hasMTMPharmacist",
+      "domain": "vbc:Patient",
+      "range": "vbc:MTMPharmacist"
+    },
+    {
+      "id": "vbc:hasSocialWorker",
+      "label": "hasSocialWorker",
+      "domain": "vbc:Patient",
+      "range": "vbc:SocialWorker"
+    },
+    {
+      "id": "vbc:assignedPatient",
+      "label": "assignedPatient",
+      "domain": "vbc:CareTeamAssignment",
+      "range": "vbc:Patient"
+    },
+    {
+      "id": "vbc:assignedMember",
+      "label": "assignedMember",
+      "domain": "vbc:CareTeamAssignment",
+      "range": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:assignedBy",
+      "label": "assignedBy",
+      "domain": "vbc:CareTeamAssignment",
+      "range": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:isEnrolledIn",
+      "label": "isEnrolledIn",
+      "domain": "vbc:Patient",
+      "range": "vbc:ProgramEnrollment"
+    },
+    {
+      "id": "vbc:enrolledInProgram",
+      "label": "enrolledInProgram",
+      "domain": "vbc:ProgramEnrollment",
+      "range": "vbc:Program"
+    },
+    {
+      "id": "vbc:enrolledBy",
+      "label": "enrolledBy",
+      "domain": "vbc:ProgramEnrollment",
+      "range": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:delegatedTo",
+      "label": "delegatedTo",
+      "domain": "vbc:ProgramEnrollment",
+      "range": "vbc:CareTeamMember"
+    },
+    {
+      "id": "vbc:hasDiagnosis",
+      "label": "hasDiagnosis",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientDiagnosis"
+    },
+    {
+      "id": "vbc:diagnosedWith",
+      "label": "diagnosedWith",
+      "domain": "vbc:PatientDiagnosis",
+      "range": "vbc:Condition"
+    },
+    {
+      "id": "vbc:hasActiveMedication",
+      "label": "hasActiveMedication",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientMedication"
+    },
+    {
+      "id": "vbc:medicationReference",
+      "label": "medicationReference",
+      "domain": "vbc:PatientMedication",
+      "range": "vbc:Medication"
+    },
+    {
+      "id": "vbc:indicatedFor",
+      "label": "indicatedFor",
+      "domain": "vbc:PatientMedication",
+      "range": "vbc:PatientDiagnosis"
+    },
+    {
+      "id": "vbc:prescribedBy",
+      "label": "prescribedBy",
+      "domain": "vbc:PatientMedication",
+      "range": "vbc:Physician"
+    },
+    {
+      "id": "vbc:hasSymptom",
+      "label": "hasSymptom",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientSymptom"
+    },
+    {
+      "id": "vbc:symptomReference",
+      "label": "symptomReference",
+      "domain": "vbc:PatientSymptom",
+      "range": "vbc:Symptom"
+    },
+    {
+      "id": "vbc:hasLabResult",
+      "label": "hasLabResult",
+      "domain": "vbc:Patient",
+      "range": "vbc:LabResult"
+    },
+    {
+      "id": "vbc:labTestReference",
+      "label": "labTestReference",
+      "domain": "vbc:LabResult",
+      "range": "vbc:LabTest"
+    },
+    {
+      "id": "vbc:hasImagingResult",
+      "label": "hasImagingResult",
+      "domain": "vbc:Patient",
+      "range": "vbc:ImagingResult"
+    },
+    {
+      "id": "vbc:hasEncounter",
+      "label": "hasEncounter",
+      "domain": "vbc:Patient",
+      "range": "vbc:Encounter"
+    },
+    {
+      "id": "vbc:hasClaim",
+      "label": "hasClaim",
+      "domain": "vbc:Patient",
+      "range": "vbc:Claim"
+    },
+    {
+      "id": "vbc:hasRiskScore",
+      "label": "hasRiskScore",
+      "domain": "vbc:Patient",
+      "range": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:hasRiskFactor",
+      "label": "hasRiskFactor",
+      "domain": "vbc:Patient",
+      "range": "vbc:RiskFactor"
+    },
+    {
+      "id": "vbc:mapsToHCC",
+      "label": "mapsToHCC",
+      "domain": "vbc:PatientDiagnosis",
+      "range": "vbc:HCCCode"
+    },
+    {
+      "id": "vbc:hasCareGap",
+      "label": "hasCareGap",
+      "domain": "vbc:Patient",
+      "range": "vbc:CareGap"
+    },
+    {
+      "id": "vbc:forMeasure",
+      "label": "forMeasure",
+      "domain": "vbc:CareGap",
+      "range": "vbc:QualityMeasure"
+    },
+    {
+      "id": "vbc:hasCarePlan",
+      "label": "hasCarePlan",
+      "domain": "vbc:Patient",
+      "range": "vbc:CarePlan"
+    },
+    {
+      "id": "vbc:includesTask",
+      "label": "includesTask",
+      "domain": "vbc:CarePlan",
+      "range": "vbc:CareTask"
+    },
+    {
+      "id": "vbc:hasSDOHBarrier",
+      "label": "hasSDOHBarrier",
+      "domain": "vbc:Patient",
+      "range": "vbc:SDOHBarrier"
+    },
+    {
+      "id": "vbc:hasSDOHAssessment",
+      "label": "hasSDOHAssessment",
+      "domain": "vbc:Patient",
+      "range": "vbc:SDOHAssessment"
+    },
+    {
+      "id": "vbc:belongsToNetwork",
+      "label": "belongsToNetwork",
+      "domain": "vbc:Physician",
+      "range": "vbc:Network"
+    },
+    {
+      "id": "vbc:belongsToPractice",
+      "label": "belongsToPractice",
+      "domain": "vbc:Physician",
+      "range": "vbc:Practice"
+    },
+    {
+      "id": "vbc:practiceAffiliate",
+      "label": "practiceAffiliate",
+      "domain": "vbc:Practice",
+      "range": "vbc:Organization"
+    },
+    {
+      "id": "vbc:hasInsurance",
+      "label": "hasInsurance",
+      "domain": "vbc:Patient",
+      "range": "vbc:Insurance"
+    },
+    {
+      "id": "vbc:hasContract",
+      "label": "hasContract",
+      "domain": "vbc:Organization",
+      "range": "vbc:VBCContract"
+    },
+    {
+      "id": "vbc:hasPanel",
+      "label": "hasPanel",
+      "domain": "vbc:Physician",
+      "range": "vbc:Panel"
+    },
+    {
+      "id": "vbc:hasDrugInteraction",
+      "label": "hasDrugInteraction",
+      "domain": "vbc:Medication",
+      "range": "vbc:DrugInteraction"
+    },
+    {
+      "id": "vbc:hasDrugDiseaseInteraction",
+      "label": "hasDrugDiseaseInteraction",
+      "domain": "vbc:Medication",
+      "range": "vbc:DrugDiseaseInteraction"
+    },
+    {
+      "id": "vbc:hasAdverseEffect",
+      "label": "hasAdverseEffect",
+      "domain": "vbc:Medication",
+      "range": "vbc:AdverseEffect"
+    },
+    {
+      "id": "vbc:mapsToICD10",
+      "label": "mapsToICD10",
+      "domain": "vbc:Condition",
+      "range": "vbc:ICD10Code"
+    },
+    {
+      "id": "vbc:mapsToLOINC",
+      "label": "mapsToLOINC",
+      "domain": "vbc:LabTest",
+      "range": "vbc:LOINCCode"
+    },
+    {
+      "id": "vbc:mapsToNDC",
+      "label": "mapsToNDC",
+      "domain": "vbc:Medication",
+      "range": "vbc:NDCCode"
+    },
+    {
+      "id": "vbc:mapsToRxNorm",
+      "label": "mapsToRxNorm",
+      "domain": "vbc:Medication",
+      "range": "vbc:RxNormCode"
+    },
+    {
+      "id": "vbc:mapsToSNOMED",
+      "label": "mapsToSNOMED",
+      "domain": "vbc:Condition",
+      "range": "vbc:SNOMEDCode"
+    },
+    {
+      "id": "vbc:mapsToCPT",
+      "label": "mapsToCPT",
+      "domain": "vbc:Procedure",
+      "range": "vbc:CPTCode"
+    },
+    {
+      "id": "vbc:mapsToHCPCS",
+      "label": "mapsToHCPCS",
+      "domain": "vbc:Procedure",
+      "range": "vbc:HCPCSCode"
+    },
+    {
+      "id": "vbc:hasReferral",
+      "label": "hasReferral",
+      "domain": "vbc:Patient",
+      "range": "vbc:Referral"
+    },
+    {
+      "id": "vbc:hasAuthorization",
+      "label": "hasAuthorization",
+      "domain": "vbc:Encounter",
+      "range": "vbc:Authorization"
+    },
+    {
+      "id": "vbc:referredBy",
+      "label": "referredBy",
+      "domain": "vbc:Referral",
+      "range": "vbc:Physician"
+    },
+    {
+      "id": "vbc:referredTo",
+      "label": "referredTo",
+      "domain": "vbc:Referral",
+      "range": "vbc:Specialist"
+    },
+    {
+      "id": "vbc:addressedByTask",
+      "label": "addressedByTask",
+      "domain": "vbc:CareGap",
+      "range": "vbc:CareTask"
+    },
+    {
+      "id": "vbc:hasRiskModel",
+      "label": "hasRiskModel",
+      "domain": "vbc:RiskFactor",
+      "range": "vbc:RiskPredictionModel"
+    },
+    {
+      "id": "vbc:hasADIScore",
+      "label": "hasADIScore",
+      "domain": "vbc:ZipCode",
+      "range": "vbc:ADIScore"
+    },
+    {
+      "id": "vbc:residesInZipCode",
+      "label": "residesInZipCode",
+      "domain": "vbc:Patient",
+      "range": "vbc:ZipCode"
+    },
+    {
+      "id": "vbc:hasProtocol",
+      "label": "hasProtocol",
+      "domain": "vbc:CarePlan",
+      "range": "vbc:ClinicalProtocol"
+    },
+    {
+      "id": "vbc:enrolledInPopProgram",
+      "label": "enrolledInPopProgram",
+      "domain": "vbc:Patient",
+      "range": "vbc:PopulationHealthProgram"
+    },
+    {
+      "id": "vbc:hasEngagementScore",
+      "label": "hasEngagementScore",
+      "domain": "vbc:Patient",
+      "range": "vbc:PatientEngagementScore"
+    },
+    {
+      "id": "vbc:hasEquityMetric",
+      "label": "hasEquityMetric",
+      "domain": "vbc:Patient",
+      "range": "vbc:HealthEquityMetric"
+    },
+    {
+      "id": "vbc:hasCohort",
+      "label": "hasCohort",
+      "domain": "vbc:RiskPredictionModel",
+      "range": "vbc:CohortDefinition"
+    },
+    {
+      "id": "vbc:hasStratRule",
+      "label": "hasStratRule",
+      "domain": "vbc:CohortDefinition",
+      "range": "vbc:StratificationRule"
+    },
+    {
+      "id": "vbc:hasAttribution",
+      "label": "hasAttribution",
+      "domain": "vbc:Patient",
+      "range": "vbc:Attribution"
+    }
+  ],
+  "individuals": [
+    {
+      "id": "vbc:State_Enrolled",
+      "label": "State_Enrolled",
+      "type": "vbc:EnrolledState",
+      "description": "Enrolled patient state"
+    },
+    {
+      "id": "vbc:State_HighRisk",
+      "label": "State_HighRisk",
+      "type": "vbc:HighRiskState",
+      "description": "High-risk patient state"
+    },
+    {
+      "id": "vbc:State_TransitionOfCare",
+      "label": "State_TransitionOfCare",
+      "type": "vbc:TransitionOfCareState",
+      "description": "Care transition patient state"
+    },
+    {
+      "id": "vbc:State_InterventionActive",
+      "label": "State_InterventionActive",
+      "type": "vbc:InterventionActiveState",
+      "description": "Active intervention state"
+    },
+    {
+      "id": "vbc:State_Stable",
+      "label": "State_Stable",
+      "type": "vbc:StableState",
+      "description": "Stable patient state"
+    },
+    {
+      "id": "vbc:State_InterventionPending",
+      "label": "State_InterventionPending",
+      "type": "vbc:InterventionPendingState",
+      "description": "Pending intervention state"
+    },
+    {
+      "id": "vbc:State_LostToFollowUp",
+      "label": "State_LostToFollowUp",
+      "type": "vbc:LostToFollowUpState",
+      "description": "Lost to follow-up state"
+    },
+    {
+      "id": "vbc:State_Disenrolled",
+      "label": "State_Disenrolled",
+      "type": "vbc:DisenrolledState",
+      "description": "Disenrolled state"
+    },
+    {
+      "id": "vbc:State_CareGapOpen",
+      "label": "State_CareGapOpen",
+      "type": "vbc:CareGapOpenState",
+      "description": "Open care gap state"
+    },
+    {
+      "id": "vbc:ICD_I509",
+      "label": "ICD_I509",
+      "type": "vbc:ICD10Code",
+      "description": "I50.9 - Heart failure, unspecified (CHF)",
+      "attributes": {
+        "icd10Code": "I50.9",
+        "conditionName": "Congestive Heart Failure"
+      }
+    },
+    {
+      "id": "vbc:ICD_E119",
+      "label": "ICD_E119",
+      "type": "vbc:ICD10Code",
+      "description": "E11.9 - Type 2 diabetes mellitus without complications",
+      "attributes": {
+        "icd10Code": "E11.9",
+        "conditionName": "Type 2 Diabetes Mellitus"
+      }
+    },
+    {
+      "id": "vbc:ICD_J441",
+      "label": "ICD_J441",
+      "type": "vbc:ICD10Code",
+      "description": "J44.1 - COPD with acute exacerbation",
+      "attributes": {
+        "icd10Code": "J44.1",
+        "conditionName": "COPD"
+      }
+    },
+    {
+      "id": "vbc:ICD_I10",
+      "label": "ICD_I10",
+      "type": "vbc:ICD10Code",
+      "description": "I10 - Essential (primary) hypertension",
+      "attributes": {
+        "icd10Code": "I10",
+        "conditionName": "Hypertension"
+      }
+    },
+    {
+      "id": "vbc:ICD_N184",
+      "label": "ICD_N184",
+      "type": "vbc:ICD10Code",
+      "description": "N18.4 - Chronic kidney disease, stage 4",
+      "attributes": {
+        "icd10Code": "N18.4",
+        "conditionName": "CKD Stage 4"
+      }
+    },
+    {
+      "id": "vbc:ICD_F329",
+      "label": "ICD_F329",
+      "type": "vbc:ICD10Code",
+      "description": "F32.9 - Major depressive disorder, single episode",
+      "attributes": {
+        "icd10Code": "F32.9",
+        "conditionName": "Depression"
+      }
+    },
+    {
+      "id": "vbc:ICD_Z591",
+      "label": "ICD_Z591",
+      "type": "vbc:ICD10Code",
+      "description": "Z59.1 - Inadequate housing",
+      "attributes": {
+        "icd10Code": "Z59.1",
+        "conditionName": "Housing Instability"
+      }
+    },
+    {
+      "id": "vbc:ICD_Z590",
+      "label": "ICD_Z590",
+      "type": "vbc:ICD10Code",
+      "description": "Z59.0 - Homelessness",
+      "attributes": {
+        "icd10Code": "Z59.0",
+        "conditionName": "Homelessness"
+      }
+    },
+    {
+      "id": "vbc:ICD_Z535",
+      "label": "ICD_Z535",
+      "type": "vbc:ICD10Code",
+      "description": "Z53.5 - Food insecurity",
+      "attributes": {
+        "icd10Code": "Z53.5",
+        "conditionName": "Food Insecurity"
+      }
+    },
+    {
+      "id": "vbc:CPT_99490",
+      "label": "CPT_99490",
+      "type": "vbc:CPTCode",
+      "description": "Chronic care management, 20 min",
+      "attributes": {
+        "cptCode": "99490",
+        "serviceName": "CCM 20min"
+      }
+    },
+    {
+      "id": "vbc:CPT_99495",
+      "label": "CPT_99495",
+      "type": "vbc:CPTCode",
+      "description": "Transition care management, 14-day contact",
+      "attributes": {
+        "cptCode": "99495",
+        "serviceName": "TCM 14-day"
+      }
+    },
+    {
+      "id": "vbc:CPT_99496",
+      "label": "CPT_99496",
+      "type": "vbc:CPTCode",
+      "description": "Transition care management, 7-day contact",
+      "attributes": {
+        "cptCode": "99496",
+        "serviceName": "TCM 7-day"
+      }
+    },
+    {
+      "id": "vbc:CPT_99457",
+      "label": "CPT_99457",
+      "type": "vbc:CPTCode",
+      "description": "Remote physiologic monitoring, 20 min",
+      "attributes": {
+        "cptCode": "99457",
+        "serviceName": "RPM 20min"
+      }
+    },
+    {
+      "id": "vbc:CPT_99473",
+      "label": "CPT_99473",
+      "type": "vbc:CPTCode",
+      "description": "Self-measured blood pressure monitoring",
+      "attributes": {
+        "cptCode": "99473",
+        "serviceName": "SMBP"
+      }
+    },
+    {
+      "id": "vbc:LOINC_HbA1c",
+      "label": "LOINC_HbA1c",
+      "type": "vbc:LOINCCode",
+      "description": "4548-4 - Hemoglobin A1c",
+      "attributes": {
+        "loincCode": "4548-4",
+        "testName": "HbA1c"
+      }
+    },
+    {
+      "id": "vbc:LOINC_BNP",
+      "label": "LOINC_BNP",
+      "type": "vbc:LOINCCode",
+      "description": "42637-9 - BNP",
+      "attributes": {
+        "loincCode": "42637-9",
+        "testName": "BNP"
+      }
+    },
+    {
+      "id": "vbc:LOINC_FEV1",
+      "label": "LOINC_FEV1",
+      "type": "vbc:LOINCCode",
+      "description": "20150-9 - FEV1",
+      "attributes": {
+        "loincCode": "20150-9",
+        "testName": "FEV1"
+      }
+    },
+    {
+      "id": "vbc:LOINC_Creatinine",
+      "label": "LOINC_Creatinine",
+      "type": "vbc:LOINCCode",
+      "description": "2160-0 - Creatinine",
+      "attributes": {
+        "loincCode": "2160-0",
+        "testName": "Creatinine"
+      }
+    },
+    {
+      "id": "vbc:LOINC_eGFR",
+      "label": "LOINC_eGFR",
+      "type": "vbc:LOINCCode",
+      "description": "62238-1 - eGFR",
+      "attributes": {
+        "loincCode": "62238-1",
+        "testName": "eGFR"
+      }
+    },
+    {
+      "id": "vbc:LOINC_LDL",
+      "label": "LOINC_LDL",
+      "type": "vbc:LOINCCode",
+      "description": "18262-6 - LDL Cholesterol",
+      "attributes": {
+        "loincCode": "18262-6",
+        "testName": "LDL"
+      }
+    },
+    {
+      "id": "vbc:LOINC_SBP",
+      "label": "LOINC_SBP",
+      "type": "vbc:LOINCCode",
+      "description": "8480-6 - Systolic Blood Pressure",
+      "attributes": {
+        "loincCode": "8480-6",
+        "testName": "SBP"
+      }
+    },
+    {
+      "id": "vbc:LOINC_DBP",
+      "label": "LOINC_DBP",
+      "type": "vbc:LOINCCode",
+      "description": "8462-4 - Diastolic Blood Pressure",
+      "attributes": {
+        "loincCode": "8462-4",
+        "testName": "DBP"
+      }
+    },
+    {
+      "id": "vbc:Cond_CHF",
+      "label": "Cond_CHF",
+      "type": "vbc:CardiovascularCondition",
+      "description": "Congestive Heart Failure",
+      "attributes": {
+        "icd10": "I50.9",
+        "hccCode": "85"
+      }
+    },
+    {
+      "id": "vbc:Cond_T2DM",
+      "label": "Cond_T2DM",
+      "type": "vbc:MetabolicCondition",
+      "description": "Type 2 Diabetes Mellitus",
+      "attributes": {
+        "icd10": "E11.9",
+        "hccCode": "19"
+      }
+    },
+    {
+      "id": "vbc:Cond_COPD",
+      "label": "Cond_COPD",
+      "type": "vbc:RespiratoryCondition",
+      "description": "Chronic Obstructive Pulmonary Disease",
+      "attributes": {
+        "icd10": "J44.1",
+        "hccCode": "111"
+      }
+    },
+    {
+      "id": "vbc:Cond_HTN",
+      "label": "Cond_HTN",
+      "type": "vbc:CardiovascularCondition",
+      "description": "Essential Hypertension",
+      "attributes": {
+        "icd10": "I10",
+        "hccCode": ""
+      }
+    },
+    {
+      "id": "vbc:Cond_CKD4",
+      "label": "Cond_CKD4",
+      "type": "vbc:RenalCondition",
+      "description": "Chronic Kidney Disease Stage 4",
+      "attributes": {
+        "icd10": "N18.4",
+        "hccCode": "138"
+      }
+    },
+    {
+      "id": "vbc:Cond_Depression",
+      "label": "Cond_Depression",
+      "type": "vbc:MentalHealthCondition",
+      "description": "Major Depressive Disorder",
+      "attributes": {
+        "icd10": "F32.9",
+        "hccCode": "59"
+      }
+    },
+    {
+      "id": "vbc:Cond_AFib",
+      "label": "Cond_AFib",
+      "type": "vbc:CardiovascularCondition",
+      "description": "Atrial Fibrillation",
+      "attributes": {
+        "icd10": "I48.0",
+        "hccCode": "96"
+      }
+    },
+    {
+      "id": "vbc:Cond_CAD",
+      "label": "Cond_CAD",
+      "type": "vbc:CardiovascularCondition",
+      "description": "Coronary Artery Disease",
+      "attributes": {
+        "icd10": "I25.10",
+        "hccCode": "86"
+      }
+    },
+    {
+      "id": "vbc:Med_Furosemide",
+      "label": "Med_Furosemide",
+      "type": "vbc:HighAlertMedication",
+      "description": "Furosemide - loop diuretic",
+      "attributes": {
+        "rxnorm": "202991",
+        "drugClass": "Loop Diuretic"
+      }
+    },
+    {
+      "id": "vbc:Med_Metformin",
+      "label": "Med_Metformin",
+      "type": "vbc:Medication",
+      "description": "Metformin - T2DM first-line",
+      "attributes": {
+        "rxnorm": "6809",
+        "drugClass": "Biguanide"
+      }
+    },
+    {
+      "id": "vbc:Med_Warfarin",
+      "label": "Med_Warfarin",
+      "type": "vbc:HighAlertMedication",
+      "description": "Warfarin - anticoagulant",
+      "attributes": {
+        "rxnorm": "11289",
+        "drugClass": "Anticoagulant"
+      }
+    },
+    {
+      "id": "vbc:Med_Lisinopril",
+      "label": "Med_Lisinopril",
+      "type": "vbc:Medication",
+      "description": "Lisinopril - ACE inhibitor",
+      "attributes": {
+        "rxnorm": "29046",
+        "drugClass": "ACE Inhibitor"
+      }
+    },
+    {
+      "id": "vbc:Med_Atorvastatin",
+      "label": "Med_Atorvastatin",
+      "type": "vbc:Medication",
+      "description": "Atorvastatin - statin",
+      "attributes": {
+        "rxnorm": "83367",
+        "drugClass": "Statin"
+      }
+    },
+    {
+      "id": "vbc:Med_Amlodipine",
+      "label": "Med_Amlodipine",
+      "type": "vbc:Medication",
+      "description": "Amlodipine - calcium channel blocker",
+      "attributes": {
+        "rxnorm": "17767",
+        "drugClass": "CCB"
+      }
+    },
+    {
+      "id": "vbc:Med_Insulin",
+      "label": "Med_Insulin",
+      "type": "vbc:HighAlertMedication",
+      "description": "Insulin - diabetes management",
+      "attributes": {
+        "rxnorm": "5856",
+        "drugClass": "Insulin"
+      }
+    },
+    {
+      "id": "vbc:Med_Carvedilol",
+      "label": "Med_Carvedilol",
+      "type": "vbc:Medication",
+      "description": "Carvedilol - beta blocker for CHF",
+      "attributes": {
+        "rxnorm": "20352",
+        "drugClass": "Beta Blocker"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_CDC_HbA1c9",
+      "label": "HEDIS_CDC_HbA1c9",
+      "type": "vbc:HEDISMeasure",
+      "description": "CDC - HbA1c Poor Control (>9%)",
+      "attributes": {
+        "measureId": "CDC",
+        "domain": "Diabetes"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_CBP",
+      "label": "HEDIS_CBP",
+      "type": "vbc:HEDISMeasure",
+      "description": "CBP - Controlling Blood Pressure",
+      "attributes": {
+        "measureId": "CBP",
+        "domain": "Hypertension"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_COL",
+      "label": "HEDIS_COL",
+      "type": "vbc:HEDISMeasure",
+      "description": "COL - Colorectal Cancer Screening",
+      "attributes": {
+        "measureId": "COL",
+        "domain": "Cancer Screening"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_BCS",
+      "label": "HEDIS_BCS",
+      "type": "vbc:HEDISMeasure",
+      "description": "BCS - Breast Cancer Screening",
+      "attributes": {
+        "measureId": "BCS",
+        "domain": "Cancer Screening"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_CDC_Eye",
+      "label": "HEDIS_CDC_Eye",
+      "type": "vbc:HEDISMeasure",
+      "description": "CDC - Eye Exam for Diabetes",
+      "attributes": {
+        "measureId": "CDC-EYE",
+        "domain": "Diabetes"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_PDC_RAS",
+      "label": "HEDIS_PDC_RAS",
+      "type": "vbc:HEDISMeasure",
+      "description": "PDC - RAS Antagonists Adherence",
+      "attributes": {
+        "measureId": "PDC-RAS",
+        "domain": "Pharmacy"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_FUH",
+      "label": "HEDIS_FUH",
+      "type": "vbc:HEDISMeasure",
+      "description": "FUH - Follow-Up After Hospitalization for Mental Illness",
+      "attributes": {
+        "measureId": "FUH",
+        "domain": "Behavioral"
+      }
+    },
+    {
+      "id": "vbc:HEDIS_AWC",
+      "label": "HEDIS_AWC",
+      "type": "vbc:HEDISMeasure",
+      "description": "AWC - Adolescent Well-Care Visits",
+      "attributes": {
+        "measureId": "AWC",
+        "domain": "Preventive"
+      }
+    },
+    {
+      "id": "vbc:HCC_85",
+      "label": "HCC_85",
+      "type": "vbc:HCCCode",
+      "description": "HCC 85 - Congestive Heart Failure",
+      "attributes": {
+        "hccCode": "85",
+        "rafWeight": 0.368
+      }
+    },
+    {
+      "id": "vbc:HCC_19",
+      "label": "HCC_19",
+      "type": "vbc:HCCCode",
+      "description": "HCC 19 - Diabetes without Complication",
+      "attributes": {
+        "hccCode": "19",
+        "rafWeight": 0.105
+      }
+    },
+    {
+      "id": "vbc:HCC_111",
+      "label": "HCC_111",
+      "type": "vbc:HCCCode",
+      "description": "HCC 111 - COPD",
+      "attributes": {
+        "hccCode": "111",
+        "rafWeight": 0.335
+      }
+    },
+    {
+      "id": "vbc:HCC_138",
+      "label": "HCC_138",
+      "type": "vbc:HCCCode",
+      "description": "HCC 138 - Chronic Kidney Disease, Stage 4",
+      "attributes": {
+        "hccCode": "138",
+        "rafWeight": 0.289
+      }
+    },
+    {
+      "id": "vbc:HCC_59",
+      "label": "HCC_59",
+      "type": "vbc:HCCCode",
+      "description": "HCC 59 - Major Depressive Disorder",
+      "attributes": {
+        "hccCode": "59",
+        "rafWeight": 0.309
+      }
+    },
+    {
+      "id": "vbc:HCC_96",
+      "label": "HCC_96",
+      "type": "vbc:HCCCode",
+      "description": "HCC 96 - Specified Heart Arrhythmias",
+      "attributes": {
+        "hccCode": "96",
+        "rafWeight": 0.282
+      }
+    },
+    {
+      "id": "vbc:SDOH_Food",
+      "label": "SDOH_Food",
+      "type": "vbc:FoodInsecurityBarrier",
+      "description": "Food insecurity barrier",
+      "attributes": {
+        "barrierType": "Food",
+        "zCode": "Z59.4"
+      }
+    },
+    {
+      "id": "vbc:SDOH_Housing",
+      "label": "SDOH_Housing",
+      "type": "vbc:HousingInstabilityBarrier",
+      "description": "Housing instability barrier",
+      "attributes": {
+        "barrierType": "Housing",
+        "zCode": "Z59.1"
+      }
+    },
+    {
+      "id": "vbc:SDOH_Transportation",
+      "label": "SDOH_Transportation",
+      "type": "vbc:TransportationBarrier",
+      "description": "Transportation barrier",
+      "attributes": {
+        "barrierType": "Transportation",
+        "zCode": "Z59.8"
+      }
+    },
+    {
+      "id": "vbc:SDOH_SocialIsolation",
+      "label": "SDOH_SocialIsolation",
+      "type": "vbc:SocialIsolationBarrier",
+      "description": "Social isolation barrier",
+      "attributes": {
+        "barrierType": "SocialIsolation",
+        "zCode": "Z60.2"
+      }
+    },
+    {
+      "id": "vbc:SDOH_Financial",
+      "label": "SDOH_Financial",
+      "type": "vbc:FinancialHardshipBarrier",
+      "description": "Financial hardship barrier",
+      "attributes": {
+        "barrierType": "Financial",
+        "zCode": "Z59.7"
+      }
+    },
+    {
+      "id": "vbc:SDOH_HighDeprivation",
+      "label": "SDOH_HighDeprivation",
+      "type": "vbc:SDOHBarrier",
+      "description": "High area deprivation (ADI >80)",
+      "attributes": {
+        "barrierType": "AreaDeprivation",
+        "adiThreshold": 80
+      }
+    },
+    {
+      "id": "vbc:Model_HCC_RAF",
+      "label": "Model_HCC_RAF",
+      "type": "vbc:RiskPredictionModel",
+      "description": "CMS HCC RAF risk adjustment model"
+    },
+    {
+      "id": "vbc:Model_LACE",
+      "label": "Model_LACE",
+      "type": "vbc:RiskPredictionModel",
+      "description": "LACE index readmission risk model"
+    },
+    {
+      "id": "vbc:Model_Hierarchical",
+      "label": "Model_Hierarchical",
+      "type": "vbc:RiskPredictionModel",
+      "description": "Hierarchical risk stratification model"
+    },
+    {
+      "id": "vbc:Model_SDOH_Composite",
+      "label": "Model_SDOH_Composite",
+      "type": "vbc:RiskPredictionModel",
+      "description": "Composite SDOH risk scoring model"
+    },
+    {
+      "id": "vbc:Contract_MSSP",
+      "label": "Contract_MSSP",
+      "type": "vbc:VBCContract",
+      "description": "Medicare Shared Savings Program contract"
+    },
+    {
+      "id": "vbc:Contract_CMMI",
+      "label": "Contract_CMMI",
+      "type": "vbc:VBCContract",
+      "description": "CMMI innovation model contract"
+    },
+    {
+      "id": "vbc:Contract_CommercialVBC",
+      "label": "Contract_CommercialVBC",
+      "type": "vbc:VBCContract",
+      "description": "Commercial payer VBC contract"
+    },
+    {
+      "id": "vbc:Contract_Capitation",
+      "label": "Contract_Capitation",
+      "type": "vbc:VBCContract",
+      "description": "Full capitation contract"
+    },
+    {
+      "id": "vbc:Prog_CCM",
+      "label": "Prog_CCM",
+      "type": "vbc:Program",
+      "description": "Chronic Care Management program"
+    },
+    {
+      "id": "vbc:Prog_TCM",
+      "label": "Prog_TCM",
+      "type": "vbc:Program",
+      "description": "Transitional Care Management program"
+    },
+    {
+      "id": "vbc:Prog_MTM",
+      "label": "Prog_MTM",
+      "type": "vbc:Program",
+      "description": "Medication Therapy Management program"
+    },
+    {
+      "id": "vbc:Prog_AWV",
+      "label": "Prog_AWV",
+      "type": "vbc:Program",
+      "description": "Annual Wellness Visit program"
+    },
+    {
+      "id": "vbc:Prog_SDOH",
+      "label": "Prog_SDOH",
+      "type": "vbc:Program",
+      "description": "SDOH social care coordination program"
+    },
+    {
+      "id": "vbc:Prog_RemoteMon",
+      "label": "Prog_RemoteMon",
+      "type": "vbc:Program",
+      "description": "Remote physiologic monitoring program"
+    },
+    {
+      "id": "vbc:SDOH_LowHealthLiteracy",
+      "label": "SDOH_LowHealthLiteracy",
+      "type": "vbc:SDOHBarrier",
+      "description": "Low health literacy barrier",
+      "attributes": {
+        "barrierType": "HealthLiteracy"
+      }
+    },
+    {
+      "id": "vbc:Model_ReadmissionML",
+      "label": "Model_ReadmissionML",
+      "type": "vbc:RiskPredictionModel",
+      "description": "ML-based 30-day readmission prediction model"
+    },
+    {
+      "id": "vbc:Contract_DirectContracting",
+      "label": "Contract_DirectContracting",
+      "type": "vbc:VBCContract",
+      "description": "CMS direct contracting entity model"
+    },
+    {
+      "id": "vbc:Prog_HighRiskOutreach",
+      "label": "Prog_HighRiskOutreach",
+      "type": "vbc:Program",
+      "description": "High-risk patient proactive outreach program"
+    },
+    {
+      "id": "vbc:HEDIS_MED_ADH",
+      "label": "HEDIS_MED_ADH",
+      "type": "vbc:HEDISMeasure",
+      "description": "Medication Adherence for Diabetes, Hypertension, and Cholesterol",
+      "attributes": {
+        "measureId": "MED-ADH",
+        "domain": "Pharmacy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "agent_id": "JIEOIRGZVJ",
+  "agent_alias_id": "XN0Z1NPGS8",
+  "agent_name": "VBC-Care-Navigator",
+  "agent_version": "3",
+  "foundation_model": "amazon.nova-pro-v1:0",
+  "region": "ap-southeast-2",
+  "action_groups": ["sparql_query", "semantic_search", "get_patient_360", "refine_query"],
+  "refiner_lambda": "vbc-query-refiner",
+  "status": "PREPARED",
+  "validation": {
+    "refine_query_lambda_deployed": true,
+    "agent_reprepared_with_new_action_group": true,
+    "chf_query_triggers_refinement": true,
+    "score_property_refinement": true,
+    "max_3_attempts_respected": true,
+    "cloudwatch_invocations_confirmed": true
+  },
+  "test_queries": [
+    {
+      "question": "Show patients with score above 75%",
+      "action_calls": ["sparql_query"],
+      "result": "returned results directly, no refinement needed"
+    },
+    {
+      "question": "Find CHF patients",
+      "action_calls": ["sparql_query", "refine_query", "refine_query", "semantic_search"],
+      "result": "refined twice, then fell back to semantic_search; no CHF match found (ontology/data coverage gap, not a wiring issue)"
+    },
+    {
+      "question": "Which patients have diabetes care gaps",
+      "action_calls": ["semantic_search", "sparql_query", "refine_query", "refine_query", "refine_query", "semantic_search"],
+      "result": "used all 3 refinement attempts, then fell back to semantic_search; confirms 3-attempt cap is respected"
+    },
+    {
+      "question": "Top 10 highest risk patients with open gaps",
+      "action_calls": ["semantic_search", "sparql_query"],
+      "result": "returned results directly, no refinement needed"
+    }
+  ]
+}

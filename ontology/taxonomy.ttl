@@ -1,0 +1,876 @@
+@prefix vbc:  <https://ontology.vbc.internal/vbc#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# VBC Ontology Taxonomy — is-a hierarchy
+# Generated from controlled_vocabulary.json
+
+<https://ontology.vbc.internal/vbc> a owl:Ontology .
+
+# ── Root classes (no parent — subClassOf owl:Thing) ──────────────────────
+vbc:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human being in the healthcare ecosystem" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Patient a owl:Class ;
+    rdfs:label "Patient" ;
+    rdfs:comment "Individual receiving healthcare services" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareTeamMember a owl:Class ;
+    rdfs:label "CareTeamMember" ;
+    rdfs:comment "Healthcare professional involved in patient care" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientState a owl:Class ;
+    rdfs:label "PatientState" ;
+    rdfs:comment "Current clinical or administrative state of a patient" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientStateTransition a owl:Class ;
+    rdfs:label "PatientStateTransition" ;
+    rdfs:comment "A change from one patient state to another" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientDiagnosis a owl:Class ;
+    rdfs:label "PatientDiagnosis" ;
+    rdfs:comment "A diagnosis assigned to a specific patient" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientMedication a owl:Class ;
+    rdfs:label "PatientMedication" ;
+    rdfs:comment "A medication prescribed to a specific patient" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientSymptom a owl:Class ;
+    rdfs:label "PatientSymptom" ;
+    rdfs:comment "A symptom reported or observed for a patient" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Physician a owl:Class ;
+    rdfs:label "Physician" ;
+    rdfs:comment "Licensed medical doctor providing clinical care" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PrimaryCarePhysician a owl:Class ;
+    rdfs:label "PrimaryCarePhysician" ;
+    rdfs:comment "Primary care provider attributed to a patient" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Specialist a owl:Class ;
+    rdfs:label "Specialist" ;
+    rdfs:comment "Specialist physician in a particular medical domain" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:MTMPharmacist a owl:Class ;
+    rdfs:label "MTMPharmacist" ;
+    rdfs:comment "Pharmacist providing medication therapy management" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SocialWorker a owl:Class ;
+    rdfs:label "SocialWorker" ;
+    rdfs:comment "Social worker providing non-clinical support" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:BehavioralHealthSpecialist a owl:Class ;
+    rdfs:label "BehavioralHealthSpecialist" ;
+    rdfs:comment "Specialist in behavioral/mental health" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:TransitionsNurse a owl:Class ;
+    rdfs:label "TransitionsNurse" ;
+    rdfs:comment "Nurse managing care transitions" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:MTMProgram a owl:Class ;
+    rdfs:label "MTMProgram" ;
+    rdfs:comment "Medication Therapy Management program" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareTeamAssignment a owl:Class ;
+    rdfs:label "CareTeamAssignment" ;
+    rdfs:comment "Assignment of a care team member to a patient" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareManager a owl:Class ;
+    rdfs:label "CareManager" ;
+    rdfs:comment "Care manager coordinating patient care activities" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CommunityHealthWorker a owl:Class ;
+    rdfs:label "CommunityHealthWorker" ;
+    rdfs:comment "Community health worker providing outreach" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClinicalOpsDirector a owl:Class ;
+    rdfs:label "ClinicalOpsDirector" ;
+    rdfs:comment "Director overseeing clinical operations" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Condition a owl:Class ;
+    rdfs:label "Condition" ;
+    rdfs:comment "A clinical condition or diagnosis" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ChronicCondition a owl:Class ;
+    rdfs:label "ChronicCondition" ;
+    rdfs:comment "Long-term persistent medical condition" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:AcuteCondition a owl:Class ;
+    rdfs:label "AcuteCondition" ;
+    rdfs:comment "Short-term medical condition requiring immediate care" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CardiovascularCondition a owl:Class ;
+    rdfs:label "CardiovascularCondition" ;
+    rdfs:comment "Chronic condition affecting the cardiovascular system" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:MetabolicCondition a owl:Class ;
+    rdfs:label "MetabolicCondition" ;
+    rdfs:comment "Chronic condition affecting metabolic function" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RespiratoryCondition a owl:Class ;
+    rdfs:label "RespiratoryCondition" ;
+    rdfs:comment "Chronic condition affecting the respiratory system" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RenalCondition a owl:Class ;
+    rdfs:label "RenalCondition" ;
+    rdfs:comment "Chronic condition affecting kidney function" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:MentalHealthCondition a owl:Class ;
+    rdfs:label "MentalHealthCondition" ;
+    rdfs:comment "Chronic behavioral or psychiatric condition" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Medication a owl:Class ;
+    rdfs:label "Medication" ;
+    rdfs:comment "A drug or therapeutic substance" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HighAlertMedication a owl:Class ;
+    rdfs:label "HighAlertMedication" ;
+    rdfs:comment "Medication with high risk of harm if misused" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:LabTest a owl:Class ;
+    rdfs:label "LabTest" ;
+    rdfs:comment "A laboratory test ordered for a patient" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:LabResult a owl:Class ;
+    rdfs:label "LabResult" ;
+    rdfs:comment "Result of a laboratory test" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:NormalLabResult a owl:Class ;
+    rdfs:label "NormalLabResult" ;
+    rdfs:comment "Lab result within normal reference range" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:AbnormalLabResult a owl:Class ;
+    rdfs:label "AbnormalLabResult" ;
+    rdfs:comment "Lab result outside normal reference range" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CriticalLabResult a owl:Class ;
+    rdfs:label "CriticalLabResult" ;
+    rdfs:comment "Lab result requiring immediate clinical action" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ImagingResult a owl:Class ;
+    rdfs:label "ImagingResult" ;
+    rdfs:comment "Result of a diagnostic imaging study" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Symptom a owl:Class ;
+    rdfs:label "Symptom" ;
+    rdfs:comment "A clinical symptom reported or observed" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Allergy a owl:Class ;
+    rdfs:label "Allergy" ;
+    rdfs:comment "A patient allergy or adverse drug reaction" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HighRiskState a owl:Class ;
+    rdfs:label "HighRiskState" ;
+    rdfs:comment "Patient state indicating elevated risk of adverse outcomes" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HCCCode a owl:Class ;
+    rdfs:label "HCCCode" ;
+    rdfs:comment "Hierarchical Condition Category risk adjustment code" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RiskFactor a owl:Class ;
+    rdfs:label "RiskFactor" ;
+    rdfs:comment "A factor contributing to a patient's risk score" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClinicalRiskFactor a owl:Class ;
+    rdfs:label "ClinicalRiskFactor" ;
+    rdfs:comment "Clinical factor contributing to risk" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:BehavioralRiskFactor a owl:Class ;
+    rdfs:label "BehavioralRiskFactor" ;
+    rdfs:comment "Behavioral factor contributing to risk" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SocialRiskFactor a owl:Class ;
+    rdfs:label "SocialRiskFactor" ;
+    rdfs:comment "Social determinant factor contributing to risk" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareGapOpenState a owl:Class ;
+    rdfs:label "CareGapOpenState" ;
+    rdfs:comment "State indicating a patient has an open care gap" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:QualityMeasure a owl:Class ;
+    rdfs:label "QualityMeasure" ;
+    rdfs:comment "A measure used to evaluate quality of care" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HEDISMeasure a owl:Class ;
+    rdfs:label "HEDISMeasure" ;
+    rdfs:comment "HEDIS quality measure from NCQA" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CMSStarMeasure a owl:Class ;
+    rdfs:label "CMSStarMeasure" ;
+    rdfs:comment "CMS Star rating quality measure" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CustomMeasure a owl:Class ;
+    rdfs:label "CustomMeasure" ;
+    rdfs:comment "Custom organization-defined quality measure" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareGap a owl:Class ;
+    rdfs:label "CareGap" ;
+    rdfs:comment "A gap in recommended preventive or chronic care" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:OpenCareGap a owl:Class ;
+    rdfs:label "OpenCareGap" ;
+    rdfs:comment "A care gap that has not yet been addressed" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClosedCareGap a owl:Class ;
+    rdfs:label "ClosedCareGap" ;
+    rdfs:comment "A care gap that has been addressed and closed" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ExcludedCareGap a owl:Class ;
+    rdfs:label "ExcludedCareGap" ;
+    rdfs:comment "A care gap excluded from measurement" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:InterventionPendingState a owl:Class ;
+    rdfs:label "InterventionPendingState" ;
+    rdfs:comment "State where an intervention is planned" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:InterventionActiveState a owl:Class ;
+    rdfs:label "InterventionActiveState" ;
+    rdfs:comment "State where an intervention is actively underway" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CarePlan a owl:Class ;
+    rdfs:label "CarePlan" ;
+    rdfs:comment "A structured plan for managing a patient's health" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CareTask a owl:Class ;
+    rdfs:label "CareTask" ;
+    rdfs:comment "A task within a care plan" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:OutreachTask a owl:Class ;
+    rdfs:label "OutreachTask" ;
+    rdfs:comment "A care task involving patient outreach" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ReferralTask a owl:Class ;
+    rdfs:label "ReferralTask" ;
+    rdfs:comment "A care task involving specialist referral" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:FollowUpTask a owl:Class ;
+    rdfs:label "FollowUpTask" ;
+    rdfs:comment "A care task requiring follow-up with patient" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Encounter a owl:Class ;
+    rdfs:label "Encounter" ;
+    rdfs:comment "A patient-provider interaction" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:InpatientEncounter a owl:Class ;
+    rdfs:label "InpatientEncounter" ;
+    rdfs:comment "A hospital inpatient admission" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:EDEncounter a owl:Class ;
+    rdfs:label "EDEncounter" ;
+    rdfs:comment "An emergency department visit" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:OutpatientEncounter a owl:Class ;
+    rdfs:label "OutpatientEncounter" ;
+    rdfs:comment "An outpatient clinic visit" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:TelehealthEncounter a owl:Class ;
+    rdfs:label "TelehealthEncounter" ;
+    rdfs:comment "A telehealth or virtual visit" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SNFEncounter a owl:Class ;
+    rdfs:label "SNFEncounter" ;
+    rdfs:comment "A skilled nursing facility stay" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:UtilizationRiskFactor a owl:Class ;
+    rdfs:label "UtilizationRiskFactor" ;
+    rdfs:comment "Risk factor related to healthcare utilization patterns" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Claim a owl:Class ;
+    rdfs:label "Claim" ;
+    rdfs:comment "A healthcare insurance claim" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SDOHBarrier a owl:Class ;
+    rdfs:label "SDOHBarrier" ;
+    rdfs:comment "A social determinant of health barrier" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:FoodInsecurityBarrier a owl:Class ;
+    rdfs:label "FoodInsecurityBarrier" ;
+    rdfs:comment "SDOH barrier related to food insecurity" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HousingInstabilityBarrier a owl:Class ;
+    rdfs:label "HousingInstabilityBarrier" ;
+    rdfs:comment "SDOH barrier related to housing instability" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:TransportationBarrier a owl:Class ;
+    rdfs:label "TransportationBarrier" ;
+    rdfs:comment "SDOH barrier related to lack of transportation" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SocialIsolationBarrier a owl:Class ;
+    rdfs:label "SocialIsolationBarrier" ;
+    rdfs:comment "SDOH barrier related to social isolation" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SDOHAssessment a owl:Class ;
+    rdfs:label "SDOHAssessment" ;
+    rdfs:comment "A social needs assessment for a patient" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SocialCareCoordinationProgram a owl:Class ;
+    rdfs:label "SocialCareCoordinationProgram" ;
+    rdfs:comment "Program coordinating social care services" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:FinancialHardshipBarrier a owl:Class ;
+    rdfs:label "FinancialHardshipBarrier" ;
+    rdfs:comment "SDOH barrier related to financial hardship" ;
+    vbc:domain "Financial" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:VBCContract a owl:Class ;
+    rdfs:label "VBCContract" ;
+    rdfs:comment "A value-based care contract between payer and provider" ;
+    vbc:domain "Financial" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "A healthcare organization" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HealthSystem a owl:Class ;
+    rdfs:label "HealthSystem" ;
+    rdfs:comment "A large integrated health system" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ACO a owl:Class ;
+    rdfs:label "ACO" ;
+    rdfs:comment "Accountable Care Organization" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:MedicalGroup a owl:Class ;
+    rdfs:label "MedicalGroup" ;
+    rdfs:comment "A group medical practice" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Practice a owl:Class ;
+    rdfs:label "Practice" ;
+    rdfs:comment "A clinical practice site" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Pharmacy a owl:Class ;
+    rdfs:label "Pharmacy" ;
+    rdfs:comment "A pharmacy organization" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CommunityOrganization a owl:Class ;
+    rdfs:label "CommunityOrganization" ;
+    rdfs:comment "A community-based organization providing social services" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:EnrolledState a owl:Class ;
+    rdfs:label "EnrolledState" ;
+    rdfs:comment "State indicating patient is enrolled in a program" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:TransitionOfCareState a owl:Class ;
+    rdfs:label "TransitionOfCareState" ;
+    rdfs:comment "State indicating patient is in care transition" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:StableState a owl:Class ;
+    rdfs:label "StableState" ;
+    rdfs:comment "State indicating patient condition is stable" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:LostToFollowUpState a owl:Class ;
+    rdfs:label "LostToFollowUpState" ;
+    rdfs:comment "State indicating patient is lost to follow-up" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:DisenrolledState a owl:Class ;
+    rdfs:label "DisenrolledState" ;
+    rdfs:comment "State indicating patient has been disenrolled" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Program a owl:Class ;
+    rdfs:label "Program" ;
+    rdfs:comment "A health management or care program" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ProgramEnrollment a owl:Class ;
+    rdfs:label "ProgramEnrollment" ;
+    rdfs:comment "A patient's enrollment in a health program" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClinicalEvent a owl:Class ;
+    rdfs:label "ClinicalEvent" ;
+    rdfs:comment "A significant clinical event in patient history" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClinicalNote a owl:Class ;
+    rdfs:label "ClinicalNote" ;
+    rdfs:comment "A clinical documentation note" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ImagingStudy a owl:Class ;
+    rdfs:label "ImagingStudy" ;
+    rdfs:comment "A diagnostic imaging study" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Procedure a owl:Class ;
+    rdfs:label "Procedure" ;
+    rdfs:comment "A clinical procedure performed on a patient" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Referral a owl:Class ;
+    rdfs:label "Referral" ;
+    rdfs:comment "A provider-to-provider referral" ;
+    vbc:domain "Utilization Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Authorization a owl:Class ;
+    rdfs:label "Authorization" ;
+    rdfs:comment "A prior authorization for a service" ;
+    vbc:domain "Utilization Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Insurance a owl:Class ;
+    rdfs:label "Insurance" ;
+    rdfs:comment "A patient's insurance coverage" ;
+    vbc:domain "Financial" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Network a owl:Class ;
+    rdfs:label "Network" ;
+    rdfs:comment "A provider network" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Panel a owl:Class ;
+    rdfs:label "Panel" ;
+    rdfs:comment "A provider's attributed patient panel" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Affiliation a owl:Class ;
+    rdfs:label "Affiliation" ;
+    rdfs:comment "A provider's affiliation with a facility" ;
+    vbc:domain "Provider" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:DrugInteraction a owl:Class ;
+    rdfs:label "DrugInteraction" ;
+    rdfs:comment "An interaction between two medications" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:DrugDiseaseInteraction a owl:Class ;
+    rdfs:label "DrugDiseaseInteraction" ;
+    rdfs:comment "An interaction between a drug and a disease state" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:AdverseEffect a owl:Class ;
+    rdfs:label "AdverseEffect" ;
+    rdfs:comment "An adverse effect associated with a medication" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ICD10Code a owl:Class ;
+    rdfs:label "ICD10Code" ;
+    rdfs:comment "An ICD-10 diagnosis or procedure code" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CPTCode a owl:Class ;
+    rdfs:label "CPTCode" ;
+    rdfs:comment "A Current Procedural Terminology code" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:LOINCCode a owl:Class ;
+    rdfs:label "LOINCCode" ;
+    rdfs:comment "A LOINC laboratory or clinical observation code" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:NDCCode a owl:Class ;
+    rdfs:label "NDCCode" ;
+    rdfs:comment "A National Drug Code" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SNOMEDCode a owl:Class ;
+    rdfs:label "SNOMEDCode" ;
+    rdfs:comment "A SNOMED CT clinical concept code" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HCPCSCode a owl:Class ;
+    rdfs:label "HCPCSCode" ;
+    rdfs:comment "A HCPCS procedure or supply code" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RxNormCode a owl:Class ;
+    rdfs:label "RxNormCode" ;
+    rdfs:comment "An RxNorm drug concept code" ;
+    vbc:domain "Pharmacy" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:FHIRResource a owl:Class ;
+    rdfs:label "FHIRResource" ;
+    rdfs:comment "A HL7 FHIR R4 resource" ;
+    vbc:domain "Cross-Domain" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RiskPredictionModel a owl:Class ;
+    rdfs:label "RiskPredictionModel" ;
+    rdfs:comment "An AI/ML model for predicting patient risk" ;
+    vbc:domain "AI/ML" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RiskScore a owl:Class ;
+    rdfs:label "RiskScore" ;
+    rdfs:comment "A calculated risk score for a patient" ;
+    vbc:domain "Risk" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CohortDefinition a owl:Class ;
+    rdfs:label "CohortDefinition" ;
+    rdfs:comment "A definition of a patient cohort" ;
+    vbc:domain "AI/ML" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:StratificationRule a owl:Class ;
+    rdfs:label "StratificationRule" ;
+    rdfs:comment "A rule for stratifying patients by risk or need" ;
+    vbc:domain "AI/ML" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ClinicalProtocol a owl:Class ;
+    rdfs:label "ClinicalProtocol" ;
+    rdfs:comment "A clinical care protocol or guideline" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PopulationHealthProgram a owl:Class ;
+    rdfs:label "PopulationHealthProgram" ;
+    rdfs:comment "A population health management program" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:HealthEquityMetric a owl:Class ;
+    rdfs:label "HealthEquityMetric" ;
+    rdfs:comment "A metric measuring health equity outcomes" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PatientEngagementScore a owl:Class ;
+    rdfs:label "PatientEngagementScore" ;
+    rdfs:comment "A score measuring patient engagement level" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:SDoHScreening a owl:Class ;
+    rdfs:label "SDoHScreening" ;
+    rdfs:comment "A screening tool for social determinants of health" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ZipCode a owl:Class ;
+    rdfs:label "ZipCode" ;
+    rdfs:comment "A geographic zip code for area-level risk" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:ADIScore a owl:Class ;
+    rdfs:label "ADIScore" ;
+    rdfs:comment "Area Deprivation Index score for a geographic area" ;
+    vbc:domain "SDOH" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:VitalSign a owl:Class ;
+    rdfs:label "VitalSign" ;
+    rdfs:comment "A physiologic vital sign measurement" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:FunctionalAssessment a owl:Class ;
+    rdfs:label "FunctionalAssessment" ;
+    rdfs:comment "A functional status or ADL assessment" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Immunization a owl:Class ;
+    rdfs:label "Immunization" ;
+    rdfs:comment "A vaccine or immunization administered to a patient" ;
+    vbc:domain "Clinical" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Attribution a owl:Class ;
+    rdfs:label "Attribution" ;
+    rdfs:comment "Assignment of a patient to an attributed provider" ;
+    vbc:domain "Patient/Member" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:QualityReportCard a owl:Class ;
+    rdfs:label "QualityReportCard" ;
+    rdfs:comment "A quality performance report card for a provider or org" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PopulationSegment a owl:Class ;
+    rdfs:label "PopulationSegment" ;
+    rdfs:comment "A segment of the patient population for analytics" ;
+    vbc:domain "AI/ML" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:DRGCode a owl:Class ;
+    rdfs:label "DRGCode" ;
+    rdfs:comment "Diagnosis Related Group inpatient classification code" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:RevenueCode a owl:Class ;
+    rdfs:label "RevenueCode" ;
+    rdfs:comment "UB-04 revenue code on institutional claim" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:OutcomesMeasure a owl:Class ;
+    rdfs:label "OutcomesMeasure" ;
+    rdfs:comment "A clinical outcomes measurement" ;
+    vbc:domain "Quality" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:Discharge a owl:Class ;
+    rdfs:label "Discharge" ;
+    rdfs:comment "A patient discharge from an inpatient or ED encounter" ;
+    vbc:domain "Claims & Utilization" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:CarePathway a owl:Class ;
+    rdfs:label "CarePathway" ;
+    rdfs:comment "A structured clinical care pathway for a condition" ;
+    vbc:domain "Care Management" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:PMPM a owl:Class ;
+    rdfs:label "PMPM" ;
+    rdfs:comment "Per Member Per Month capitation payment metric" ;
+    vbc:domain "Financial" ;
+    rdfs:subClassOf owl:Thing .
+
+vbc:TCOC a owl:Class ;
+    rdfs:label "TCOC" ;
+    rdfs:comment "Total Cost of Care metric" ;
+    vbc:domain "Financial" ;
+    rdfs:subClassOf owl:Thing .
+
+# ── Subclass relationships ───────────────────────────────────────────────
+vbc:Patient rdfs:subClassOf vbc:Person .
+vbc:Member rdfs:subClassOf vbc:Person .
+vbc:CareTeamMember rdfs:subClassOf vbc:Person .
+vbc:Physician rdfs:subClassOf vbc:CareTeamMember .
+vbc:PrimaryCarePhysician rdfs:subClassOf vbc:Physician .
+vbc:Specialist rdfs:subClassOf vbc:Physician .
+vbc:CareManager rdfs:subClassOf vbc:CareTeamMember .
+vbc:SocialWorker rdfs:subClassOf vbc:CareTeamMember .
+vbc:ChronicCondition rdfs:subClassOf vbc:Condition .
+vbc:AcuteCondition rdfs:subClassOf vbc:Condition .
+vbc:CardiovascularCondition rdfs:subClassOf vbc:ChronicCondition .
+vbc:MetabolicCondition rdfs:subClassOf vbc:ChronicCondition .
+vbc:RespiratoryCondition rdfs:subClassOf vbc:ChronicCondition .
+vbc:RenalCondition rdfs:subClassOf vbc:ChronicCondition .
+vbc:MentalHealthCondition rdfs:subClassOf vbc:ChronicCondition .
+vbc:HEDISMeasure rdfs:subClassOf vbc:QualityMeasure .
+vbc:CMSStarMeasure rdfs:subClassOf vbc:QualityMeasure .
+vbc:CustomMeasure rdfs:subClassOf vbc:QualityMeasure .
+vbc:OpenCareGap rdfs:subClassOf vbc:CareGap .
+vbc:ClosedCareGap rdfs:subClassOf vbc:CareGap .
+vbc:ExcludedCareGap rdfs:subClassOf vbc:CareGap .
+vbc:InpatientEncounter rdfs:subClassOf vbc:Encounter .
+vbc:EDEncounter rdfs:subClassOf vbc:Encounter .
+vbc:OutpatientEncounter rdfs:subClassOf vbc:Encounter .
+vbc:TelehealthEncounter rdfs:subClassOf vbc:Encounter .
+vbc:HighAlertMedication rdfs:subClassOf vbc:Medication .
+vbc:FoodInsecurityBarrier rdfs:subClassOf vbc:SDOHBarrier .
+vbc:HousingInstabilityBarrier rdfs:subClassOf vbc:SDOHBarrier .
+vbc:TransportationBarrier rdfs:subClassOf vbc:SDOHBarrier .
+vbc:SocialIsolationBarrier rdfs:subClassOf vbc:SDOHBarrier .
+vbc:HealthSystem rdfs:subClassOf vbc:Organization .
+vbc:ACO rdfs:subClassOf vbc:Organization .
+vbc:MedicalGroup rdfs:subClassOf vbc:Organization .
+vbc:Practice rdfs:subClassOf vbc:Organization .
+vbc:PatientDiagnosis rdfs:subClassOf vbc:ClinicalObservation .
+vbc:LabResult rdfs:subClassOf vbc:ClinicalObservation .
+vbc:VitalSign rdfs:subClassOf vbc:ClinicalObservation .
+vbc:RiskFactor rdfs:subClassOf vbc:RiskAssessment .
+vbc:HCCCode rdfs:subClassOf vbc:RiskAssessment .
+vbc:VBCContract rdfs:subClassOf vbc:FinancialArrangement .
+vbc:CapitationPayment rdfs:subClassOf vbc:FinancialArrangement .
+vbc:CarePlan rdfs:subClassOf vbc:CareManagementEntity .
+vbc:CareTask rdfs:subClassOf vbc:CareManagementEntity .
+vbc:CareTeamAssignment rdfs:subClassOf vbc:CareManagementEntity .
+vbc:MedicalClaim rdfs:subClassOf vbc:Claim .
+vbc:PharmacyClaim rdfs:subClassOf vbc:Claim .
+vbc:PriorAuthorization rdfs:subClassOf vbc:UtilizationEvent .
+vbc:CareTransition rdfs:subClassOf vbc:UtilizationEvent .

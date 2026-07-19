@@ -1,0 +1,9 @@
+{
+  "agent_id": "JIEOIRGZVJ",
+  "agent_alias_id": "XN0Z1NPGS8",
+  "agent_name": "VBC-Care-Navigator",
+  "foundation_model": "amazon.nova-pro-v1:0",
+  "region": "ap-southeast-2",
+  "action_groups": ["sparql_query", "semantic_search", "get_patient_360"],
+  "status": "PREPARED"
+}

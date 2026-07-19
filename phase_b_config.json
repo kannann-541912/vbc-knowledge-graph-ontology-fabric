@@ -1,0 +1,31 @@
+{
+  "agent_id": "JIEOIRGZVJ",
+  "agent_alias_id": "XN0Z1NPGS8",
+  "agent_version": "4",
+  "region": "ap-southeast-2",
+  "account": "020396275984",
+  "action_groups": ["sparql_query", "semantic_search", "get_patient_360", "refine_query", "retrieve_memory", "store_memory"],
+  "lambdas": {
+    "memory_write": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-memory-write",
+    "memory_read": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-memory-read",
+    "memory_rate": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-memory-rate"
+  },
+  "dynamodb_table": "vbc-query-memory",
+  "opensearch_index": "vbc-query-memory",
+  "rate_endpoint": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/rate",
+  "status": "PREPARED",
+  "blocked_on": {
+    "resource": "vbc-lambda-execution-role",
+    "missing_permission": "dynamodb:PutItem, dynamodb:GetItem, dynamodb:Query, dynamodb:UpdateItem on arn:aws:dynamodb:ap-southeast-2:020396275984:table/vbc-query-memory",
+    "affected_lambdas": ["vbc-memory-write", "vbc-memory-rate"],
+    "unaffected_lambdas": ["vbc-memory-read (OpenSearch-only, no DynamoDB dependency)"]
+  },
+  "validation": {
+    "dynamodb_table_exists": true,
+    "opensearch_index_created": true,
+    "memory_read_lambda_works": true,
+    "memory_write_lambda_degrades_gracefully": true,
+    "memory_write_lambda_persists": false,
+    "reference_sparql_reuse_confirmed": false
+  }
+}

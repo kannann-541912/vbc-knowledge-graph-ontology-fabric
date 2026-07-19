@@ -1,0 +1,30 @@
+{
+  "account": "020396275984",
+  "region": "ap-southeast-2",
+  "api_gateway": {
+    "id": "trzyzra8ve",
+    "base_url": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc",
+    "endpoints": {
+      "sparql_bridge": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/sparql",
+      "hybrid_query":  "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/query"
+    }
+  },
+  "lambdas": {
+    "sparql_bridge":  "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-sparql-bridge",
+    "hybrid_query":   "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-hybrid-query",
+    "sparql_relay":   "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-sparql-relay"
+  },
+  "bedrock_kb": {
+    "knowledge_base_id": "",
+    "aoss_collection_id": "",
+    "aoss_endpoint": ""
+  },
+  "neptune": {
+    "endpoint": "vbc-neptune-poc.cluster-cxe0k4i6swp1.ap-southeast-2.neptune.amazonaws.com:8182"
+  },
+  "opensearch": {
+    "endpoint": "search-vbc-vectors-poc-nuxmojpv6rtsiywdxpw53pq6tm.ap-southeast-2.es.amazonaws.com",
+    "concepts_index": "vbc-concepts-embeddings",
+    "icd10_index": "vbc-icd10-embeddings"
+  }
+}

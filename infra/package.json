@@ -1,0 +1,22 @@
+{
+  "name": "vbc-knowledge-fabric-infra",
+  "version": "0.1.0",
+  "bin": {
+    "infra": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "aws-cdk": "2.x",
+    "ts-node": "^10.9.0",
+    "typescript": "~5.4.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.x",
+    "constructs": "^10.0.0"
+  }
+}

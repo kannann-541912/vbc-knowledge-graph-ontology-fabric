@@ -1,0 +1,36 @@
+# Sensitive / credentials
+*.env
+.env*
+credentials
+~/.aws/
+
+# Binary / large files
+*.docx
+*.pptx
+*.pdf
+*.jpg
+*.png
+*.parquet
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Node / CDK
+node_modules/
+cdk.out/
+*.js.map
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp / generated HTML graphs
+vbc_graph.html
+
+# Zip artifacts (Lambda packages)
+*.zip

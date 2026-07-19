@@ -1,0 +1,75 @@
+{
+  "agent_id": "JIEOIRGZVJ",
+  "agent_alias_id": "XN0Z1NPGS8",
+  "agent_version": "5",
+  "region": "ap-southeast-2",
+  "account": "020396275984",
+  "action_groups": ["sparql_query", "semantic_search", "get_patient_360", "refine_query", "retrieve_memory", "store_memory", "propose_term"],
+  "lambdas": {
+    "propose_term": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-propose-term",
+    "stream_notifier": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-stream-notifier",
+    "proposal_ui": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-proposal-ui",
+    "ontology_pipeline": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-ontology-pipeline",
+    "cq_regression": "arn:aws:lambda:ap-southeast-2:020396275984:function:vbc-cq-regression"
+  },
+  "dynamodb_table": "vbc-ontology-proposals",
+  "dynamodb_stream_arn": "arn:aws:dynamodb:ap-southeast-2:020396275984:table/vbc-ontology-proposals/stream/2026-07-07T13:15:25.194",
+  "event_source_mapping_uuid": "7c82260e-a421-4fde-967c-87e56a8387b7",
+  "sns_topic_arn": "arn:aws:sns:ap-southeast-2:020396275984:vbc-ontology-review",
+  "sns_email_subscription": "kannann.velmurugiah@mastechdigital.com (pending confirmation until email link clicked)",
+  "api_routes": {
+    "list": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/ontology/proposals",
+    "approve": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/ontology/approve?id={proposal_id}",
+    "reject": "https://trzyzra8ve.execute-api.ap-southeast-2.amazonaws.com/poc/ontology/reject?id={proposal_id}"
+  },
+  "status": "LIVE",
+  "iam_grants_applied": {
+    "vbc-lambda-execution-role": [
+      "DynamoDBQueryMemory (Phase B)",
+      "DynamoDBOntologyProposals",
+      "DynamoDBStreamsOntologyProposals",
+      "LambdaInvokeOntologyPipeline",
+      "SNSOntologyReviewPublish"
+    ],
+    "sso_permission_set": [
+      "sns:CreateTopic (used to create vbc-ontology-review)",
+      "sns:Subscribe (used to subscribe admin email)"
+    ]
+  },
+  "end_to_end_test": {
+    "date": "2026-07-08",
+    "test_term": "LongCOVIDCondition",
+    "proposal_id": "08ce9464-d4b6-4a0b-878e-940f48690140",
+    "result": "PASSED",
+    "steps_verified": [
+      "propose_term Lambda wrote PENDING row to vbc-ontology-proposals",
+      "DynamoDB Streams triggered vbc-stream-notifier with no errors (SNS publish succeeded)",
+      "API Gateway /ontology/approve transitioned status to APPROVING then invoked vbc-ontology-pipeline",
+      "controlled_vocabulary.json updated in S3 with new class entry",
+      "taxonomy.ttl updated in S3 with new owl:Class + rdfs:label block",
+      "vbc_ontology.owl updated (append_owl step completed per pipeline_steps)",
+      "Neptune graph https://ontology.vbc.internal/vbc/schema contains new triples for vbc:LongCOVIDCondition (verified via vbc-sparql-relay query)",
+      "OpenSearch vbc-concepts-embeddings/_doc/LongCOVIDCondition found=true with correct label",
+      "change_log.md appended with proposal details and 'CQ re-run: ALL PASSED'",
+      "Final DynamoDB status = APPROVED with full pipeline_steps list recorded"
+    ]
+  },
+  "validation": {
+    "dynamodb_table_exists": true,
+    "dynamodb_streams_enabled": true,
+    "propose_term_lambda_deployed": true,
+    "propose_term_lambda_degrades_gracefully": true,
+    "propose_term_action_group_live": true,
+    "agent_instruction_updated": true,
+    "agent_version": "5",
+    "stream_notifier_lambda_deployed": true,
+    "event_source_mapping_created": true,
+    "proposal_ui_lambda_deployed": true,
+    "api_gateway_ontology_routes_deployed": true,
+    "ontology_pipeline_lambda_deployed": true,
+    "cq_regression_lambda_deployed": true,
+    "sns_topic_created": true,
+    "end_to_end_proposal_persists": true,
+    "end_to_end_pipeline_runs": true
+  }
+}
