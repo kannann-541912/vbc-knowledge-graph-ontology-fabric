@@ -410,6 +410,72 @@ See [`project-logs/execution-summary.md`](project-logs/execution-summary.md) for
 
 ---
 
+## Research Roadmap
+
+The current implementation validates the core hypothesis — that a six-stage ontology
+pipeline can ground an AI agent in clinically meaningful reasoning. The following phases
+extend the research toward formal data quality guarantees, provenance, and reproducibility.
+
+### Phase 8 — SHACL Validation *(next)*
+
+The most immediate gap in the current knowledge fabric is the absence of **formal
+instance validation**. The OWL ontology defines what *should* be true (class membership,
+property ranges, cardinality constraints); it does not enforce what *is* true for every
+RDF node loaded into Neptune. A `vbc:Patient` node missing a `vbc:hasPCP` edge is not
+caught until a competency question fails at query time.
+
+**SHACL (Shapes Constraint Language)** closes this gap by defining machine-checkable
+shapes that every instance graph must satisfy before it is considered valid. The planned
+work:
+
+| Artefact | Description |
+|---|---|
+| `ontology/shacl/patient_shape.ttl` | Every `vbc:Patient` must have exactly one `vbc:hasPCP`, at least one `vbc:hasRiskScore`, and a non-empty `vbc:mrn` literal |
+| `ontology/shacl/diagnosis_shape.ttl` | Every `vbc:PatientDiagnosis` must have `vbc:icd10CodeValue` matching pattern `[A-Z][0-9]{2}\.?[0-9A-Z]*` and a `vbc:diagnosisDate` |
+| `ontology/shacl/care_gap_shape.ttl` | Every `vbc:OpenCareGap` must be linked to exactly one `vbc:Patient` via `vbc:hasCareGap` (inverse) and carry a `vbc:forMeasure` edge |
+| `ontology/shacl/risk_shape.ttl` | `vbc:riskScoreValue` must be `xsd:decimal` in range [0.0, 5.0]; `vbc:riskTier` must be one of `low`, `moderate`, `high` |
+| `ontology/shacl/sdoh_shape.ttl` | `vbc:SDOHBarrier` nodes must carry `vbc:barrierType` from the enumerated set defined in the controlled vocabulary |
+| `tests/shacl/validate_instances.py` | Runs all shapes against the Neptune instance graph via `pySHACL`; reports violations with node IRI, shape, and constraint path |
+
+**Research significance:** SHACL validation converts the ontology from a *descriptive*
+schema into a *prescriptive* contract. This is a prerequisite for trustworthy AI agent
+answers — an agent querying a graph with missing or malformed nodes may return
+incomplete results with no indication that data is absent. SHACL violations surface
+these gaps explicitly, enabling the agent to hedge or refuse rather than silently omit.
+
+The validation pipeline will run as a pre-load gate: instance data cannot enter Neptune
+until all SHACL shapes pass. Violations are logged to `ontology/governance/change_log.md`
+with node IRI, shape name, and constraint message.
+
+---
+
+### Phase 9 — Ontology Governance & Drift Detection
+
+- Automated competency question regression on every ontology change (`tests/sparql/run_all_cq.py`)
+- Neptune graph integrity checks: orphaned nodes, missing functional property edges, taxonomy depth
+- DataZone PHI tagging (`sensitivity=PHI`) and Lake Formation subscription approval workflow
+- CloudTrail audit dashboard tracking SPARQL query volume by IAM principal
+
+### Phase 10 — Real-World Data Integration
+
+- Replace synthetic Parquet data with de-identified FHIR R4 bundles via an HL7-to-RDF
+  mapping layer, validating that the ontology generalises beyond the synthetic cohort
+- ICD-10 → HCC mapping table loaded as named individuals, enabling full RAF score
+  computation in SPARQL without Athena lookups
+- Extend the NL→SPARQL bridge with few-shot examples drawn from validated competency
+  questions, improving generation accuracy for novel query patterns
+
+### Phase 11 — Multi-Agent Reasoning
+
+- Decompose the single Bedrock Agent into a specialist panel: a **Clinical Reasoning Agent**
+  (SPARQL + ontology), a **Population Health Agent** (Athena aggregations), and a
+  **Care Coordination Agent** (care plan and gap closure focus)
+- Orchestrate via a supervisor agent that routes questions and merges responses
+- Evaluate against clinician-annotated ground truth answers to quantify hallucination
+  reduction attributable to ontology grounding
+
+---
+
 ## Inspiration and Reference
 
 This research is directly inspired by the **Ontology Pipeline** methodology articulated by
